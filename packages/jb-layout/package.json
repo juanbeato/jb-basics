@@ -1,11 +1,11 @@
 {
-  "name": "@jb-basics/jb-layout",
+  "name": "@juanbeato/jb-layout",
   "version": "0.1.1-alpha.0",
   "description": "Webcomponent jb-layout following open-wc recommendations",
   "author": "jb-layout",
   "license": "MIT",
-  "main": "index.js",
-  "module": "index.js",
+  "main": "jb-layout.js",
+  "module": "jb-layout.js",
   "scripts": {
     "build": "webpack --mode production",
     "builddev": "webpack --mode development",
@@ -69,5 +69,9 @@
       "prettier --write",
       "git add"
     ]
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "keywords": []
 }
