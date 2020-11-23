@@ -1,0 +1,59 @@
+.jb-menu{
+    &-container {
+        margin: 8px 0;
+        display: flex;
+
+        &__item {
+            cursor: pointer;
+            text-align: center;
+            align-content: center;
+            p {
+                margin: 0;
+                margin-top: 4px;
+            }
+        }
+    }
+}
+
+:host([full]) {
+    .jb-menu{
+        &-container {    
+            &__item {
+                flex: 1;
+            }
+        }
+    }
+}
+
+:host([left]) {
+    .jb-menu{
+        &-container {
+            display: flex;
+    
+            &__item {
+                margin-left: 8px;
+                p {
+                    margin: 0;
+                    margin-top: 4px;
+                }
+            }
+        }
+    }
+}
+
+:host([right]) {
+    .jb-menu{
+        &-container {
+            display: flex;
+            flex-direction: row-reverse;
+    
+            &__item {
+                margin-right: 8px;
+                p {
+                    margin: 0;
+                    margin-top: 4px;
+                }
+            }
+        }
+    }
+}
