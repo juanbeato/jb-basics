@@ -1,6 +1,6 @@
 {
   "name": "jb-menu",
-  "version": "0.0.0",
+  "version": "0.2.0-alpha.0",
   "description": "Webcomponent jb-menu following open-wc recommendations",
   "author": "jb-menu",
   "license": "MIT",
@@ -28,27 +28,27 @@
     "lit-html": "^1.1.2"
   },
   "devDependencies": {
-    "@web/dev-server": "^0.0.12",
+    "@open-wc/demoing-storybook": "^2.0.0",
+    "@open-wc/eslint-config": "^4.0.0",
+    "@open-wc/testing": "^2.0.0",
     "@researchgate/babel-plugin-transform-scss-import-to-string": "^1.0.0",
+    "@web/dev-server": "^0.0.12",
+    "@web/test-runner": "^0.7.41",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^5.0.1",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.11.0",
     "extract-loader": "^5.1.0",
     "html-webpack-plugin": "^4.5.0",
     "husky": "^1.0.0",
+    "lint-staged": "^10.0.0",
     "lit-scss-loader": "^1.0.1",
     "node-sass": "^5.0.0",
     "prettier": "^2.0.4",
     "sass-loader": "^10.1.0",
     "webpack": "^5.4.0",
     "webpack-cli": "^4.2.0",
-    "webpack-dev-server": "^3.11.0",
-    "eslint": "^6.1.0",
-    "@open-wc/eslint-config": "^4.0.0",
-    "eslint-config-prettier": "^6.11.0",
-    "lint-staged": "^10.0.0",
-    "@web/test-runner": "^0.7.41",
-    "@open-wc/testing": "^2.0.0",
-    "@open-wc/demoing-storybook": "^2.0.0"
+    "webpack-dev-server": "^3.11.0"
   },
   "eslintConfig": {
     "extends": [
