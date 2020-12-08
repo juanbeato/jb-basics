@@ -3,7 +3,7 @@
         margin: 8px 0;
         display: flex;
 
-        &__item {
+        &__item, &__item-isSelected {
             cursor: pointer;
             text-align: center;
             align-content: center;
@@ -12,13 +12,19 @@
                 margin-top: 4px;
             }
         }
+
+        &__item {
+            &-isSelected {
+                color: red;
+            }
+        }
     }
 }
 
 :host([full]) {
     .jb-menu{
         &-container {    
-            &__item {
+            &__item, &__item-isSelected {
                 flex: 1;
             }
         }
@@ -30,7 +36,7 @@
         &-container {
             display: flex;
     
-            &__item {
+            &__item, &__item-isSelected {
                 margin-left: 8px;
                 p {
                     margin: 0;
@@ -47,7 +53,7 @@
             display: flex;
             flex-direction: row-reverse;
     
-            &__item {
+            &__item, &__item-isSelected {
                 margin-right: 8px;
                 p {
                     margin: 0;

@@ -15,26 +15,39 @@ export class JbMenu extends LitElement {
   static get properties() {
     return {
       items: { type: Array },
+      selected: { type: Number },
+      clickEvent: { type: String },
     };
   }
 
   constructor() {
     super();
     this.items = [];
+    this.selected = 0;
+    this.clickEvent = 'jb-menu-item-clicked';
   }
 
   render() {
     return html`
       <nav class="jb-menu-container">
         ${this.items.map(
-          item => html`
-            <div class="jb-menu-container__item">
-              ${this._itemIconTemplate(item.icon)}
-              ${this._itemTextTemplate(item.text)}
-            </div>
-          `
+          (item, index) =>
+            html`${this._itemTemplate(item, index, index === this.selected)}`
         )}
       </nav>
+    `;
+  }
+
+  _itemTemplate(item, index, selected) {
+    return html`
+      <div
+        class="jb-menu-container__item${selected ? '-isSelected' : ''}"
+        @click=${() => this._handleClick(index)}
+        @keydown=${() => this._handleClick(index)}
+      >
+        ${this._itemIconTemplate(item.icon)}
+        ${this._itemTextTemplate(item.text)}
+      </div>
     `;
   }
 
@@ -51,5 +64,16 @@ export class JbMenu extends LitElement {
     return text
       ? html`<p class="jb-menu-container__item__text">${text}</p>`
       : html``;
+  }
+
+  _handleClick(index) {
+    this.selected = index;
+    this.dispatchEvent(
+      new CustomEvent(this.clickEvent, {
+        bubbles: true,
+        composed: true,
+        detail: index,
+      })
+    );
   }
 }
