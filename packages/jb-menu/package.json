@@ -1,5 +1,5 @@
 {
-  "name": "jb-menu",
+  "name": "@juanbeato/jb-menu",
   "version": "0.2.0-alpha.0",
   "description": "Webcomponent jb-menu following open-wc recommendations",
   "author": "jb-menu",
@@ -71,5 +71,16 @@
       "prettier --write",
       "git add"
     ]
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanbeato/jb-basics.git"
+  },
+  "bugs": {
+    "url": "https://github.com/juanbeato/jb-basics/issues"
+  },
+  "homepage": "https://github.com/juanbeato/jb-basics#readme"
 }
