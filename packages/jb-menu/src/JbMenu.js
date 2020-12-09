@@ -45,8 +45,8 @@ export class JbMenu extends LitElement {
         @click=${() => this._handleClick(index)}
         @keydown=${() => this._handleClick(index)}
       >
-        ${this._itemIconTemplate(item.icon)}
-        ${this._itemTextTemplate(item.text)}
+        ${this.constructor._itemIconTemplate(item.icon)}
+        ${this.constructor._itemTextTemplate(item.text)}
       </div>
     `;
   }
