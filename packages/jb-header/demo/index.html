@@ -2,6 +2,7 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
   <style>
     body {
       background: #fafafa;
@@ -10,7 +11,15 @@
 </head>
 <body>
   <div id="demo">
-    <jb-header title="Example title"></jb-header>
+    <jb-header
+      lefttext="Left text"
+      lefticon="search">
+      <p slot="right">right.</p>
+    </jb-header>
+    <jb-header
+      lefttext="Left text"
+      righticon="search">
+    </jb-header>
   </div>
 </body>
 </html>

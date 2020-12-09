@@ -1,4 +1,29 @@
-$bgColor: red;
-h2 {
-    background-color: $bgColor;
+.jb-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-top: var(--jb-header-p-padding-top, 0);
+    padding-bottom: var(--jb-header-p-padding-bottom, 0);
+    padding-left: var(--jb-header-p-padding-left, 0);
+    padding-right: var(--jb-header-p-padding-right, 0);
+
+    &__left-container {
+        font-weight: var(--jb-header-left-container-font-weight, normal);;
+        font-size: var(--jb-header-left-container-font-size, 24px);
+        flex: 1;
+    }
+
+    &__left-container, &__right-container {
+        display: flex;
+        align-items: center;
+        
+        &__text {
+            margin: 0;
+        }
+    }
+}
+
+::slotted(p) {
+    margin-top: var(--jb-header-p-margin-top, 0);
+    margin-bottom: var(--jb-header-p-margin-bottom, 0);
 }
