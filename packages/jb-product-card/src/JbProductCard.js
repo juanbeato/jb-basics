@@ -20,6 +20,7 @@ export class JbProductCard extends LitElement {
       productAlign: { type: String },
       productTime: { type: String },
       productPrice: { type: String },
+      buttonText: { type: String }
     };
   }
 
@@ -29,6 +30,9 @@ export class JbProductCard extends LitElement {
     this.productDescription = '';
     this.productImage = '';
     this.productAlign = 'horizontal';
+    this.productTime = '';
+    this.productPrice = '';
+    this.buttonText = '';
   }
 
   render() {
@@ -36,30 +40,44 @@ export class JbProductCard extends LitElement {
       <div class="jb-product-card__main-container">
         <iron-image
           class="jb-product-card__main-container__image"
-          sizing="contain"
+          sizing="cover"
           fade
           src=${this.productImage}
         ></iron-image>
         <div class="jb-product-card__main-container__data-container">
-          <p class="jb-product-card__main-container__data-container__title">
-            ${this.productTitle}
-          </p>
-          <p
-            class="jb-product-card__main-container__data-container__description"
-          >
-            ${this.productDescription}
-          </p>
+          ${this.constructor._paragraphTemplate(this.productTitle, 'title')}
+          ${this.constructor._paragraphTemplate(this.productDescription, 'description')}
           <div class="jb-product-card__main-container__data-container__footer">
-            <p class="jb-product-card__main-container__data-container__footer__left">
-              12:44:22
-            </p>
-            <jb-button class="jb-product-card__main-container__data-container__footer__right"
-            secondary
-            buttontext="FREE">
-            </jb-button>
+            ${this.constructor._timeTemplate(this.productTime)}
+            ${this._priceTemplate(this.productPrice)}
           </div>
         </div>
       </div>
     `;
+  }
+
+  static _paragraphTemplate(text, type) {
+    return text
+      ? html`
+        <p class="jb-product-card__main-container__data-container__${type}">
+            ${text}
+        </p>`
+      : html``
+  }
+
+  _priceTemplate(price) {
+    return price
+      ? html`<p class="jb-product-card__main-container__data-container__footer__right">${price}</p>`
+      : html`<jb-button class="jb-product-card__main-container__data-container__footer__right"
+        secondary
+        buttontext=${this.buttonText}></jb-button>`;
+  }
+
+  static _timeTemplate(time) {
+    return time
+      ? html`<p class="jb-product-card__main-container__data-container__footer__left">
+        ${time}
+      </p>`
+      : html``
   }
 }
