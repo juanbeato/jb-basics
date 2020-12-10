@@ -1,5 +1,6 @@
 import { html, css, LitElement, unsafeCSS } from 'lit-element';
 import '@polymer/iron-image/iron-image.js';
+import '@juanbeato/jb-button';
 import style from './JbProductCard.scss';
 
 export class JbProductCard extends LitElement {
@@ -49,16 +50,13 @@ export class JbProductCard extends LitElement {
             ${this.productDescription}
           </p>
           <div class="jb-product-card__main-container__data-container__footer">
-            <p
-              class="jb-product-card__main-container__data-container__footer__left"
-            >
+            <p class="jb-product-card__main-container__data-container__footer__left">
               12:44:22
             </p>
-            <button
-              class="jb-product-card__main-container__data-container__footer__right"
-            >
-              FREE
-            </button>
+            <jb-button class="jb-product-card__main-container__data-container__footer__right"
+            secondary
+            buttontext="FREE">
+            </jb-button>
           </div>
         </div>
       </div>
