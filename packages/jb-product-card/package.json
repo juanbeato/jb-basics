@@ -1,6 +1,6 @@
 {
   "name": "@juanbeato/jb-product-card",
-  "version": "0.0.0",
+  "version": "1.0.0-alpha.0",
   "description": "Webcomponent jb-product-card following open-wc recommendations",
   "author": "Juan Antonio Beato",
   "license": "MIT",
