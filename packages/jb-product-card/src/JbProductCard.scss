@@ -1,0 +1,47 @@
+iron-image {
+    width: 100%;
+}
+
+.jb-product-card {
+    &__main-container {
+        p {
+            margin: 0;
+        }
+    }
+}
+
+:host([productalign="horizontal"]) {
+    .jb-product-card {
+        &__main-container {
+            display: flex;
+
+            &__image {
+                flex: 1;
+            }
+
+            &__data-container {
+                flex: 3;
+
+                &__title {
+                    font-size: 20px;
+                }
+
+                &__description {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                }
+
+                &__footer {
+                    display: flex;
+
+                    &__left {
+                        flex: 1;
+                    }
+                }
+            }
+        }
+    }
+}
