@@ -1,0 +1,40 @@
+$primaryBgColor: var(--jb-button-primary-bg-color, blue);
+$primaryColor: var(--jb-button-primary-color, white);
+$secondaryBgColor: var(--jb-button-secondary-bg-color, $primaryColor);
+$secondaryColor: var(--jb-button-secondary-color, $primaryBgColor);
+$borderSize: var(--jb-button-main-border-size, 1px);
+
+.jb-button{
+    &-main {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        border: none;
+        padding: var(--jb-button-main-padding-vertical, 8px) var(--jb-button-main-padding-horizontal, 16px);
+        border-radius: var(--jb-button-main-border-radius, 0);
+
+        &__text {
+            margin: 0;
+        }
+    }
+} 
+
+:host([primary]) {
+    .jb-button{
+        &-main {
+            border: #{$borderSize} solid #{$primaryBgColor};
+            background-color: #{$primaryBgColor};
+            color:#{$primaryColor};
+        }
+    }
+}
+
+:host([secondary]) {
+    .jb-button{
+        &-main {
+            background-color: #{$secondaryBgColor};
+            color:#{$secondaryColor};
+            border: #{$borderSize}  solid #{$secondaryColor};
+        }
+    }
+}
