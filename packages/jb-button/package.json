@@ -1,11 +1,11 @@
 {
-  "name": "@juanbeato/jb-header",
-  "version": "0.2.2-alpha.0",
-  "description": "Webcomponent jb-header following open-wc recommendations",
-  "author": "jb-header",
+  "name": "@juanbeato/jb-button",
+  "version": "1.0.1-alpha.0",
+  "description": "Webcomponent jb-button following open-wc recommendations",
+  "author": "jb-button",
   "license": "MIT",
-  "main": "jb-header.js",
-  "module": "jb-header.js",
+  "main": "jb-button.js",
+  "module": "jb-button.js",
   "scripts": {
     "build": "webpack --mode production",
     "builddev": "webpack --mode development",
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@polymer/iron-icon": "^3.0.1",
-    "@polymer/iron-icons": "github:PolymerElements/iron-icons",
+    "@polymer/iron-icons": "^3.0.1",
     "lit-element": "^2.2.1",
     "lit-html": "^1.1.2"
   },
