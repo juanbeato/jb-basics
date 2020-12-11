@@ -1,11 +1,11 @@
 {
-  "name": "@juanbeato/jb-button",
-  "version": "1.0.2-alpha.0",
-  "description": "Webcomponent jb-button following open-wc recommendations",
-  "author": "jb-button",
+  "name": "@juanbeato/jb-product-card",
+  "version": "1.0.1-alpha.0",
+  "description": "Webcomponent jb-product-card following open-wc recommendations",
+  "author": "Juan Antonio Beato",
   "license": "MIT",
-  "main": "jb-button.js",
-  "module": "jb-button.js",
+  "main": "jb-product-card.js",
+  "module": "jb-product-card.js",
   "scripts": {
     "build": "webpack --mode production",
     "builddev": "webpack --mode development",
@@ -22,8 +22,8 @@
     "storybook:build": "build-storybook"
   },
   "dependencies": {
-    "@polymer/iron-icon": "^3.0.1",
-    "@polymer/iron-icons": "^3.0.1",
+    "@juanbeato/jb-button": "^1.0.2-alpha.0",
+    "@polymer/iron-image": "^3.0.2",
     "lit-element": "^2.2.1",
     "lit-html": "^1.1.2"
   },
