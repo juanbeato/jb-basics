@@ -1,0 +1,113 @@
+.jb-product-card-list {
+    &-container {
+        width: var(--jb-product-card-list-container-width, 100%);
+        overflow: hidden;
+        margin-top: var(--jb-product-card-list-container-margin-top, 20px);
+        margin-bottom: var(--jb-product-card-list-container-margin-bottom, 20px);
+
+        &__item {
+            margin-bottom: var(--jb-product-card-list-container-item-margin-bottom, 20px);
+        }
+
+        jb-product-card {
+            --jb-product-card-main-container-margin-top: var(--jb-product-card-list-container-item-main-container-margin-top, 0);
+            --jb-product-card-main-container-margin-bottom: var(--jb-product-card-list-container-item-main-container-margin-bottom, 0);
+            --jb-product-card-main-container-margin-left: var(--jb-product-card-list-container-item-main-container-margin-left, 0);
+            --jb-product-card-main-container-margin-right: var(--jb-product-card-list-container-item-main-container-margin-right, 0);
+            --jb-product-card-main-container-min-height: var(--jb-product-card-list-container-item-main-container-min-height, initial);
+            --jb-product-card-image-box-shadow: var(--jb-product-card-list-container-item-image-box-shadow, none);
+            --jb-product-card-image-border-radius: var(--jb-product-card-list-container-item-image-border-radius, 0);
+            --jb-product-card-data-container-margin-top: var(--jb-product-card-list-container-item-data-container-margin-top, 0);
+            --jb-product-card-data-container-margin-bottom: var(--jb-product-card-list-container-item-data-container-margin-bottom, 0);
+            --jb-product-card-data-container-margin-left: var(--jb-product-card-list-container-item-data-container-margin-left, 0);
+            --jb-product-card-data-container-margin-right: var(--jb-product-card-list-container-item-data-container-margin-right, 0);
+            --jb-product-card-data-container-title-color: var(--jb-product-card-list-container-item-data-container-title-color, black);
+            --jb-product-card-data-container-title-font-size: var(--jb-product-card-list-container-item-data-container-title-font-size, 20px);
+            --jb-product-card-data-container-title-font-weight: var(--jb-product-card-list-container-item-data-container-title-font-weight, normal);
+            --jb-product-card-data-container-title-margin-top: var(--jb-product-card-list-container-item-data-container-title-margin-top, 0);
+            --jb-product-card-data-container-title-margin-bottom: var(--jb-product-card-list-container-item-data-container-title-margin-bottom, 8px);
+            --jb-product-card-data-container-title-margin-left: var(--jb-product-card-list-container-item-data-container-title-margin-left, 0);
+            --jb-product-card-data-container-title-margin-right: var(--jb-product-card-list-container-item-data-container-title-margin-right, 0);
+            --jb-product-card-data-container-description-color: var(--jb-product-card-list-container-item-data-container-description-color, black);
+            --jb-product-card-data-container-description-font-size: var(--jb-product-card-list-container-item-data-container-description-font-size, 16px);
+            --jb-product-card-data-container-description-margin-top: var(--jb-product-card-list-container-item-data-container-description-margin-top, 0);
+            --jb-product-card-data-container-description-margin-bottom: var(--jb-product-card-list-container-item-data-container-description-margin-bottom, 8px);
+            --jb-product-card-data-container-description-margin-left: var(--jb-product-card-list-container-item-data-container-description-margin-left, 0);
+            --jb-product-card-data-container-description-margin-right: var(--jb-product-card-list-container-item-data-container-description-margin-right, 0);
+            --jb-product-card-data-container-footer-left-color: var(--jb-product-card-list-container-item-data-container-footer-left-color, black);
+            --jb-product-card-data-container-footer-left-font-size: var(--jb-product-card-list-container-item-data-container-footer-left-font-size, 16px);
+            --jb-product-card-data-container-footer-right-color: var(--jb-product-card-list-container-item-data-container-footer-right-color, black);
+            --jb-product-card-data-container-footer-right-font-size: var(--jb-product-card-list-container-item-data-container-footer-right-font-size, 16px);
+        }
+    }
+}
+
+:host([itemview='vertical']) {
+    .jb-product-card-list {
+        &-container {
+            display: flex;
+            overflow-y: hidden; 
+            overflow-x: auto;
+    
+            &__item {
+                flex: 1;
+                margin-bottom: var(--jb-product-card-list-vertical-container-item-margin-bottom, 0);
+                min-width: var(--jb-product-card-list-vertical-container-item-min-width, calc(100% / 3));
+                margin-right: var(--jb-product-card-list-vertical-container-item-margin-right, 20px);
+            }
+
+            jb-product-card {
+                --jb-product-card-vertical-main-container-margin-top: var(--jb-product-card-list-vertical-container-item-main-container-margin-top, 0);
+                --jb-product-card-vertical-main-container-margin-bottom: var(--jb-product-card-list-vertical-container-item-main-container-margin-bottom, 8px);
+                --jb-product-card-vertical-main-container-margin-left: var(--jb-product-card-list-vertical-container-item-main-container-margin-left, 0);
+                --jb-product-card-vertical-main-container-margin-right: var(--jb-product-card-list-vertical-container-item-main-container-margin-right, 0);
+                --jb-product-card-vertical-image-margin-bottom: var(--jb-product-card-list-vertical-container-item-image-margin-bottom, 8px);
+                --jb-product-card-vertical-image-width: var(--jb-product-card-list-vertical-container-item-image-width, 100%);
+                --jb-product-card-vertical-image-box-shadow: var(--jb-product-card-list-vertical-container-item-image-box-shadow, none);
+                --jb-product-card-vertical-data-container-margin-top: var(--jb-product-card-list-vertical-container-item-data-container-margin-top, 0);
+                --jb-product-card-vertical-data-container-margin-bottom: var(--jb-product-card-list-vertical-container-item-data-container-margin-bottom, 0);
+                --jb-product-card-vertical-data-container-margin-left: var(--jb-product-card-list-vertical-container-item-data-container-margin-left, 0);
+                --jb-product-card-vertical-data-container-margin-right: var(--jb-product-card-list-vertical-container-item-data-container-margin-right, 0);
+                --jb-product-card-vertical-data-container-title-font-size: var(--jb-product-card-list-vertical-container-item-data-container-title-font-size, 20px);
+                --jb-product-card-vertical-data-container-title-margin-top: var(--jb-product-card-list-vertical-container-item-data-container-title-margin-top, 0);
+                --jb-product-card-vertical-data-container-title-margin-bottom: var(--jb-product-card-list-vertical-container-item-data-container-title-margin-bottom, 8px);
+                --jb-product-card-vertical-data-container-title-margin-left: var(--jb-product-card-list-vertical-container-item-data-container-title-margin-left, 0);
+                --jb-product-card-vertical-data-container-title-margin-right: var(--jb-product-card-list-vertical-container-item-data-container-title-margin-right, 0);
+                --jb-product-card-vertical-data-container-description-font-size: var(--jb-product-card-list-vertical-container-item-data-container-description-font-size, 16px);
+                --jb-product-card-vertical-data-container-description-margin-top: var(--jb-product-card-list-vertical-container-item-data-container-description-margin-top, 0);
+                --jb-product-card-vertical-data-container-description-margin-bottom: var(--jb-product-card-list-vertical-container-item-data-container-description-margin-bottom, 0);
+                --jb-product-card-vertical-data-container-description-margin-left: var(--jb-product-card-list-vertical-container-item-data-container-description-margin-left, 0);
+                --jb-product-card-vertical-data-container-description-margin-right: var(--jb-product-card-list-vertical-container-item-data-container-description-margin-right, 0);
+            }
+        }
+    }
+}
+
+:host([itemview='horizontal']) {
+    .jb-product-card-list {
+        &-container {
+            jb-product-card {
+                --jb-product-card-horizontal-main-container-margin-top: var(--jb-product-card-list-horizontal-container-item-main-container-margin-top, 0);
+                --jb-product-card-horizontal-main-container-margin-bottom: var(--jb-product-card-list-horizontal-container-item-main-container-margin-bottom, 0);
+                --jb-product-card-horizontal-main-container-margin-left: var(--jb-product-card-list-horizontal-container-item-main-container-margin-left, 0);
+                --jb-product-card-horizontal-main-container-margin-right: var(--jb-product-card-list-horizontal-container-item-main-container-margin-right, 0);
+                --jb-product-card-horizontal-image-box-shadow: var(--jb-product-card-list-horizontal-container-item-image-box-shadow, none);
+                --jb-product-card-horizontal-data-container-margin-top: var(--jb-product-card-list-horizontal-container-item-data-container-margin-top, 0);
+                --jb-product-card-horizontal-data-container-margin-bottom: var(--jb-product-card-list-horizontal-container-item-data-container-margin-bottom, 0);
+                --jb-product-card-horizontal-data-container-margin-left: var(--jb-product-card-list-horizontal-container-item-data-container-margin-left, 8px);
+                --jb-product-card-horizontal-data-container-margin-right: var(--jb-product-card-list-horizontal-container-item-data-container-margin-right, 0);
+                --jb-product-card-horizontal-data-container-title-font-size: var(--jb-product-card-list-horizontal-container-item-data-container-title-font-size, 20px);
+                --jb-product-card-horizontal-data-container-title-margin-top: var(--jb-product-card-list-horizontal-container-item-data-container-title-margin-top, 0);
+                --jb-product-card-horizontal-data-container-title-margin-bottom: var(--jb-product-card-list-horizontal-container-item-data-container-title-margin-bottom, 8px);
+                --jb-product-card-horizontal-data-container-title-margin-left: var(--jb-product-card-list-horizontal-container-item-data-container-title-margin-left, 0);
+                --jb-product-card-horizontal-data-container-title-margin-right: var(--jb-product-card-list-horizontal-container-item-data-container-title-margin-right, 0);
+                --jb-product-card-horizontal-data-container-description-font-size: var(--jb-product-card-list-horizontal-container-item-data-container-description-font-size, 16px);
+                --jb-product-card-horizontal-data-container-description-margin-top: var(--jb-product-card-list-horizontal-container-item-data-container-description-margin-top, 0);
+                --jb-product-card-horizontal-data-container-description-margin-bottom: var(--jb-product-card-list-horizontal-container-item-data-container-description-margin-bottom, 0);
+                --jb-product-card-horizontal-data-container-description-margin-left: var(--jb-product-card-list-horizontal-container-item-data-container-description-margin-left, 0);
+                --jb-product-card-horizontal-data-container-description-margin-right: var(--jb-product-card-list-horizontal-container-item-data-container-description-margin-right, 0);
+                --jb-product-card-horizontal-main-container-margin-bottom: var(--jb-product-card-list-horizontal-container-margin-bottom, 20px);
+            }
+        }
+    }
+}
