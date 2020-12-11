@@ -14,42 +14,39 @@ export class JbProductCard extends LitElement {
 
   static get properties() {
     return {
-      productTitle: { type: String },
-      productDescription: { type: String },
-      productImage: { type: String },
-      productAlign: { type: String },
-      productTime: { type: String },
-      productPrice: { type: String },
+      title: { type: String },
+      description: { type: String },
+      image: { type: String },
+      view: { type: String },
+      time: { type: String },
+      price: { type: String },
       buttonText: { type: String }
     };
   }
 
   constructor() {
     super();
-    this.productTitle = '';
-    this.productDescription = '';
-    this.productImage = '';
-    this.productAlign = 'horizontal';
-    this.productTime = '';
-    this.productPrice = '';
+    this.title = '';
+    this.description = '';
+    this.image = '';
+    this.view = 'horizontal';
+    this.time = '';
+    this.price = '';
     this.buttonText = '';
   }
 
   render() {
     return html`
       <div class="jb-product-card__main-container">
-        <iron-image
-          class="jb-product-card__main-container__image"
-          sizing="cover"
-          fade
-          src=${this.productImage}
-        ></iron-image>
+        <div class="jb-product-card__main-container__image__container">
+          <img class="jb-product-card__main-container__image__container__img" src=${this.image}>
+        </div>
         <div class="jb-product-card__main-container__data-container">
-          ${this.constructor._paragraphTemplate(this.productTitle, 'title')}
-          ${this.constructor._paragraphTemplate(this.productDescription, 'description')}
+          ${this.constructor._paragraphTemplate(this.title, 'title')}
+          ${this.constructor._paragraphTemplate(this.description, 'description')}
           <div class="jb-product-card__main-container__data-container__footer">
-            ${this.constructor._timeTemplate(this.productTime)}
-            ${this._priceTemplate(this.productPrice)}
+            ${this.constructor._timeTemplate(this.time)}
+            ${this._priceTemplate(this.price)}
           </div>
         </div>
       </div>
