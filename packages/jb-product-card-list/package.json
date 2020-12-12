@@ -1,8 +1,8 @@
 {
-  "name": "jb-product-card-list",
+  "name": "@juanbeato/jb-product-card-list",
   "version": "1.0.0-alpha.0",
   "description": "Webcomponent jb-product-card-list following open-wc recommendations",
-  "author": "jb-product-card-list",
+  "author": "Juan Antonio Beato",
   "license": "MIT",
   "main": "jb-product-card-list.js",
   "module": "jb-product-card-list.js",
