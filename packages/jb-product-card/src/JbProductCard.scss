@@ -124,8 +124,9 @@
                     }
 
                     &__right {
-                        flex: 1;
                         text-align: right;
+                        min-width: 20%;
+                        
                         p {
                             margin: 0;
                         }
