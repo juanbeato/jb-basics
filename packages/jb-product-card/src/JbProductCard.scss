@@ -12,6 +12,10 @@
                 box-shadow: var(--jb-product-card-image-box-shadow, none);
                 border-radius: var(--jb-product-card-image-border-radius, 0);
             }
+
+            nb-skeleton {
+                --skeleton-height: var(--jb-product-card-image-skeleton-height, initial);
+            }
         }
 
         &__data-container {

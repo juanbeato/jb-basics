@@ -62,10 +62,10 @@ export class JbProductCard extends LitElement {
   }
 
   get _imageTemplateSkeleton() {
-    return this.isLoading 
+    return this.isLoading
       ? html`${ this.view === 'horizontal' 
         ? unsafeHTML(`<nb-skeleton width="100%" height="100%"></nb-skeleton>`)
-        : unsafeHTML(`<nb-skeleton width="100%" height="100%"></nb-skeleton>`)}` 
+        : unsafeHTML(`<nb-skeleton width="100%"></nb-skeleton>`)}` 
       : html``
   }
 
