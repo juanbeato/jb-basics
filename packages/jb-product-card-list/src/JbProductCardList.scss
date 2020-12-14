@@ -4,6 +4,13 @@
         overflow: hidden;
         margin-top: var(--jb-product-card-list-container-margin-top, 20px);
         margin-bottom: var(--jb-product-card-list-container-margin-bottom, 20px);
+        margin-left: var(--jb-product-card-list-container-margin-left, 0);
+        margin-right: var(--jb-product-card-list-container-margin-right, 0);
+        padding-top: var(--jb-product-card-list-container-padding-top, 0);
+        padding-bottom: var(--jb-product-card-list-container-padding-bottom, 0);
+        padding-left: var(--jb-product-card-list-container-padding-left, 0);
+        padding-right: var(--jb-product-card-list-container-padding-right, 0);
+        box-sizing: border-box;
 
         &__item {
             margin-bottom: var(--jb-product-card-list-container-item-margin-bottom, 20px);
