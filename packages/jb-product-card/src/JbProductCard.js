@@ -17,19 +17,25 @@ export class JbProductCard extends LitElement {
   static get properties() {
     return {
       title: { type: String },
+      subTitle: { type: String },
       description: { type: String },
       image: { type: String },
       view: { type: String },
       time: { type: String },
       price: { type: String },
       buttonText: { type: String },
-      isLoading: { type: Boolean }
+      isLoading: { 
+        type: Boolean,
+        reflect: true 
+      },
+      viewTemplates: { type: Object }
     };
   }
 
   constructor() {
     super();
     this.title = '';
+    this.subTitle = '';
     this.description = '';
     this.image = '';
     this.view = 'horizontal';
@@ -37,35 +43,63 @@ export class JbProductCard extends LitElement {
     this.price = '';
     this.buttonText = '';
     this.isLoading = true;
+    this.viewTemplates = {
+      'vertical': 'standard',
+      'horizontal': 'standard',
+      'banner': 'banner'
+    }
     initSkeleton();
   }
 
   render() {
     return html`
       <div class="jb-product-card__main-container"> 
-        <div class="jb-product-card__main-container__image__container">
-          <img ?hidden=${this.isLoading} class="jb-product-card__main-container__image__container__img" 
-              src=${this.image}
-              @load=${() => this.isLoading = false}>
-          ${this._imageTemplateSkeleton}
-        </div>
-        <div class="jb-product-card__main-container__data-container">
-          ${this._paragraphTemplate(this.title, 'title')}
-          ${this._paragraphTemplate(this.description, 'description')}
-          <div class="jb-product-card__main-container__data-container__footer">
-            ${this._timeTemplate(this.time)}
-            ${this._priceTemplate(this.price)}
-          </div>
+        ${this['_' + this._getTemplateType(this.view) + 'Template']}
+      </div>
+    `
+  }
+
+  get _standardTemplate() {
+    return html`
+      ${this._getImageTemplate}
+      <div class="jb-product-card__main-container__data-container">
+        ${this._paragraphTemplate(this.title, 'title')}
+        ${this._paragraphTemplate(this.description, 'description')}
+        <div class="jb-product-card__main-container__data-container__footer">
+          ${this._timeTemplate(this.time)}
+          ${this._priceTemplate(this.price)}
         </div>
       </div>
     `;
   }
 
-  get _imageTemplateSkeleton() {
+  get _bannerTemplate() {
+    return html`
+      ${this._getImageTemplate}
+      <div class="jb-product-card__main-container__data-container">
+        ${this._paragraphTemplate(this.title, 'title')}
+        ${this._paragraphTemplate(this.subTitle, 'subTitle')}
+      </div>
+    `
+  }
+
+  get _getImageTemplate() {
+    return html`
+      <div class="jb-product-card__main-container__image__container">
+        <img ?hidden=${this.isLoading} class="jb-product-card__main-container__image__container__img" 
+            src=${this.image}
+            @load=${() => this.isLoading = false}>
+        ${this._imageSkeletonTemplate}
+      </div>
+    `
+  }
+
+  get _imageSkeletonTemplate() {
+    const skeletonConfig = Object.assign({ width: '100%' }, 
+      this.view === 'horizontal' ? { height: '100%' } : {}
+    )
     return this.isLoading
-      ? html`${ this.view === 'horizontal' 
-        ? unsafeHTML(`<nb-skeleton width="100%" height="100%"></nb-skeleton>`)
-        : unsafeHTML(`<nb-skeleton width="100%"></nb-skeleton>`)}` 
+      ? html`${ this._skeletonTemplate(skeletonConfig) }`
       : html``
   }
 
@@ -74,7 +108,7 @@ export class JbProductCard extends LitElement {
       ? html`
         <div class="jb-product-card__main-container__data-container__${type}">
           ${ this.isLoading 
-            ? (type === 'description' ? unsafeHTML('<nb-skeleton count="3"></nb-skeleton>') : unsafeHTML('<nb-skeleton width="50%"></nb-skeleton>'))
+            ? (type === 'description' ? this._skeletonTemplate({ count: 3 }) : this._skeletonTemplate({ width: '50%' }))
             : unsafeHTML(`<p class="jb-product-card__main-container__data-container__${type}__text">
                   ${text}
               </p>`)
@@ -87,7 +121,7 @@ export class JbProductCard extends LitElement {
     return html`
       <div class="jb-product-card__main-container__data-container__footer__right">
       ${ this.isLoading 
-        ? unsafeHTML(`<nb-skeleton width="50%"></nb-skeleton>`)
+        ? this._skeletonTemplate({ width: '50%' })
         : (price
           ? unsafeHTML(`<p class="jb-product-card__main-container__data-container__footer__right__text">${price}</p>`)
           : unsafeHTML(`<jb-button class="jb-product-card__main-container__data-container__footer__right__button"
@@ -101,11 +135,23 @@ export class JbProductCard extends LitElement {
       ? html`
       <div class="jb-product-card__main-container__data-container__footer__left">
         ${ this.isLoading 
-          ? unsafeHTML('<nb-skeleton width="50%"></nb-skeleton>')
+          ? this._skeletonTemplate({ width: '50%' })
           : unsafeHTML(`<p class="jb-product-card__main-container__data-container__footer__left__text">
               ${time}
             </p>`)}
       </div>`
       : html``
+  }
+
+  _skeletonTemplate(config) {
+    return unsafeHTML(`<nb-skeleton
+      ${config.width ? `width="${config.width}"` : ''}
+      ${config.height ? `height="${config.height}"` : ''}
+      ${config.count ? `count="${config.count}"` : ''}
+    ></nb-skeleton>`)
+  }
+
+  _getTemplateType(view) {
+    return this.viewTemplates[view];
   }
 }

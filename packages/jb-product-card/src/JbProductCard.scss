@@ -5,6 +5,8 @@
         margin-left: var(--jb-product-card-main-container-margin-left, 0);
         margin-right: var(--jb-product-card-main-container-margin-right, 0);
         min-height: var(--jb-product-card-main-container-min-height, initial);
+        border-radius: var(--jb-product-card-main-container-border-radius, 0);
+        box-shadow: var(--jb-product-card-main-container-box-shadow, none);
 
         &__image__container {
             &__img {
@@ -32,6 +34,20 @@
                 margin-bottom: var(--jb-product-card-data-container-title-margin-bottom, 8px);
                 margin-left: var(--jb-product-card-data-container-title-margin-left, 0);
                 margin-right: var(--jb-product-card-data-container-title-margin-right, 0);
+
+                p {
+                    margin: 0;
+                }
+            }
+
+            &__subTitle {
+                color: var(--jb-product-card-data-container-subtitle-color, black);
+                font-size: var(--jb-product-card-data-container-subtitle-font-size, 16px);
+                font-weight: var(--jb-product-card-data-container-subtitle-font-weight, normal);
+                margin-top: var(--jb-product-card-data-container-subtitle-margin-top, 0);
+                margin-bottom: var(--jb-product-card-data-container-subtitle-margin-bottom, 8px);
+                margin-left: var(--jb-product-card-data-container-subtitle-margin-left, 0);
+                margin-right: var(--jb-product-card-data-container-subtitle-margin-right, 0);
 
                 p {
                     margin: 0;
@@ -180,6 +196,87 @@
                     margin-right: var(--jb-product-card-vertical-data-container-description-margin-right, 0);
                 }
             }
+        }
+    }
+}
+
+:host([view="banner"]) {
+    .jb-product-card {
+        &__main-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: var(--jb-product-card-banner-main-container-height, initial);
+            overflow: hidden;
+            padding-top: var(--jb-product-card-banner-main-container-padding-top, 0);
+            padding-bottom: var(--jb-product-card-banner-main-container-padding-bottom, 0);
+            padding-left: var(--jb-product-card-banner-main-container-padding-left, 0);
+            padding-right: var(--jb-product-card-banner-main-container-padding-right, 0);
+            box-sizing: border-box;
+
+            &__image__container {
+                flex: 1;
+
+                &__img {
+                    width: var(--jb-product-card-banner-image-width, 100%);
+                    box-shadow: var(--jb-product-card-banner-image-box-shadow, none);
+                }
+            }
+
+            &__data-container {
+                width: 100%;
+                position: absolute;
+                display: flex;
+                flex-direction: var(--jb-product-card-banner-data-container-flex-direction, column);
+                color: white;
+                padding-top: var(--jb-product-card-banner-data-container-padding-top, 8px);
+                padding-bottom: var(--jb-product-card-banner-data-container-padding-bottom, 8px);
+                padding-left: var(--jb-product-card-banner-data-container-padding-left, 8px);
+                padding-right: var(--jb-product-card-banner-data-container-padding-right, 8px);
+                margin-top: var(--jb-product-card-banner-data-container-margin-top, 0);
+                margin-bottom: var(--jb-product-card-banner-data-container-margin-bottom, 0);
+                margin-left: var(--jb-product-card-banner-data-container-margin-left, 0);
+                margin-right: var(--jb-product-card-banner-data-container-margin-right, 0);
+                box-sizing: border-box;
+
+                &__title {
+                    color: white;
+                    padding-top: var(--jb-product-card-banner-data-container-title-padding-top, 0);
+                    padding-bottom: var(--jb-product-card-banner-data-container-title-padding-bottom, 0);
+                    padding-left: var(--jb-product-card-banner-data-container-title-padding-left, 0);
+                    padding-right: var(--jb-product-card-banner-data-container-title-padding-right, 0);
+                    margin-top: var(--jb-product-card-banner-data-container-title-margin-top, 0);
+                    margin-bottom: var(--jb-product-card-banner-data-container-title-margin-bottom, 0);
+                    margin-left: var(--jb-product-card-banner-data-container-title-margin-left, 0);
+                    margin-right: var(--jb-product-card-banner-data-container-title-margin-right, 0);
+                    font-size: var(--jb-product-card-banner-data-container-title-font-size, 20px);
+                    font-weight: var(--jb-product-card-banner-data-container-title-font-weight, normal);
+                    line-height: var(--jb-product-card-banner-data-container-title-line-height, initial);
+                }
+
+                &__subTitle {
+                    color: white;
+                    padding-top: var(--jb-product-card-banner-data-container-subtitle-padding-top, 0);
+                    padding-bottom: var(--jb-product-card-banner-data-container-subtitle-padding-bottom, 0);
+                    padding-left: var(--jb-product-card-banner-data-container-subtitle-padding-left, 0);
+                    padding-right: var(--jb-product-card-banner-data-container-subtitle-padding-right, 0);
+                    margin-top: var(--jb-product-card-banner-data-container-subtitle-margin-top, 0);
+                    margin-bottom: var(--jb-product-card-banner-data-container-subtitle-margin-bottom, 0);
+                    margin-left: var(--jb-product-card-banner-data-container-subtitle-margin-left, 0);
+                    margin-right: var(--jb-product-card-banner-data-container-subtitle-margin-right, 0);
+                    font-size: var(--jb-product-card-banner-data-container-subtitle-font-size, 16px);
+                    font-weight: var(--jb-product-card-banner-data-container-subtitle-font-weight, normal);
+                    letter-spacing: var(--jb-product-card-banner-data-container-subtitle-letter-spacing, initial);
+                }
+            }
+        }
+    }
+}
+
+:host([isloading]) {
+    .jb-product-card {
+        &__main-container {
+            box-shadow: var(--jb-product-card-isloading-main-container-box-shadow, none);
         }
     }
 }
