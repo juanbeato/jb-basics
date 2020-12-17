@@ -52,11 +52,14 @@
             --jb-product-card-button-padding-vertical: var(--jb-product-card-list-container-item-button-padding-vertical, 8px);
             --jb-product-card-button-padding-horizontal: var(--jb-product-card-list-container-item-button-padding-horizontal, 16px);
             --jb-product-card-button-border-radius: var(--jb-product-card-list-container-item-button-border-radius, 0);
+            --jb-product-card-main-container-border-radius: var(--jb-product-card-list-container-item-border-radius, 0);
+            --jb-product-card-main-container-box-shadow: var(--jb-product-card-list-container-item-box-shadow, none);
+            --jb-product-card-isloading-main-container-box-shadow: var(--jb-product-card-list-isloading-main-container-box-shadow, none);
         }
     }
 }
 
-:host([itemview='vertical']) {
+:host([orientation='horizontal']) {
     .jb-product-card-list {
         &-container {
             display: flex;
@@ -64,12 +67,18 @@
             overflow-x: auto;
     
             &__item {
-                flex: 1;
+                flex: var(--jb-product-card-list-vertical-container-item-flex, 1);
                 margin-bottom: var(--jb-product-card-list-vertical-container-item-margin-bottom, 0);
                 min-width: var(--jb-product-card-list-vertical-container-item-min-width, calc(100% / 3));
                 margin-right: var(--jb-product-card-list-vertical-container-item-margin-right, 20px);
             }
+        }
+    }
+}
 
+:host([itemview='vertical']) {
+    .jb-product-card-list {
+        &-container {
             jb-product-card {
                 --jb-product-card-vertical-main-container-margin-top: var(--jb-product-card-list-vertical-container-item-main-container-margin-top, 0);
                 --jb-product-card-vertical-main-container-margin-bottom: var(--jb-product-card-list-vertical-container-item-main-container-margin-bottom, 8px);
@@ -122,6 +131,26 @@
                 --jb-product-card-horizontal-data-container-description-margin-left: var(--jb-product-card-list-horizontal-container-item-data-container-description-margin-left, 0);
                 --jb-product-card-horizontal-data-container-description-margin-right: var(--jb-product-card-list-horizontal-container-item-data-container-description-margin-right, 0);
                 --jb-product-card-horizontal-main-container-margin-bottom: var(--jb-product-card-list-horizontal-container-margin-bottom, 20px);
+            }
+        }
+    }
+}
+
+:host([itemview='banner']) {
+    .jb-product-card-list {
+        &-container {
+            jb-product-card {
+                --jb-product-card-banner-data-container-flex-direction: var(--jb-product-card-list-banner-data-container-flex-direction, column);
+                --jb-product-card-banner-main-container-height: var(--jb-product-card-list-banner-main-container-height, initial);
+                --jb-product-card-banner-image-box-shadow: var(--jb-product-card-list-banner-image-box-shadow, none);
+                --jb-product-card-banner-data-container-title-font-size: var(--jb-product-card-list-banner-data-container-title-font-size, 20px);
+                --jb-product-card-banner-data-container-subtitle-font-size: var(--jb-product-card-list-banner-data-container-subtitle-font-size, 16px);
+                --jb-product-card-banner-data-container-title-line-height: var(--jb-product-card-list-banner-data-container-title-line-height, initial);
+                --jb-product-card-banner-data-container-subtitle-letter-spacing: var(--jb-product-card-list-banner-data-container-subtitle-letter-spacing, initial);
+                --jb-product-card-banner-data-container-title-margin-left: var(--jb-product-card-list-banner-data-container-title-margin-left, 20px);
+                --jb-product-card-banner-data-container-title-margin-right: var(--jb-product-card-list-banner-data-container-title-margin-right, 20px);
+                --jb-product-card-banner-data-container-subtitle-margin-left: var(--jb-product-card-list-banner-data-container-subtitle-margin-left, 20px);
+                --jb-product-card-banner-data-container-subtitle-margin-right: var(--jb-product-card-list-banner-data-container-subtitle-margin-right, 20px);
             }
         }
     }
