@@ -1,0 +1,42 @@
+$rating-icon-color: var(--jb-rating-icon-color, black);
+$rating-rate-color: var(--jb-rating-rate-color, grey);
+
+.jb-rating {
+    &-container {
+        display: flex;
+        align-items: center;
+
+        &__icons {
+            margin-top: var(--jb-rating-container-icons-margin-top, 0);
+            margin-bottom: var(--jb-rating-container-icons-margin-bottom, 0);
+            margin-right: var(--jb-rating-container-icons-margin-right, 0);
+            margin-left: var(--jb-rating-container-icons-margin-left, 0);
+            padding-top: var(--jb-rating-container-icons-padding-top, 0);
+            padding-bottom: var(--jb-rating-container-icons-padding-bottom, 0);
+            padding-right: var(--jb-rating-container-icons-padding-right, 0);
+            padding-left: var(--jb-rating-container-icons-padding-left, 0);
+
+            &__item {
+                &__icon {
+                    color: var(--jb-rating-icon-empty-color, $rating-icon-color);
+                    &-filled {
+                        color: var(--jb-rating-icon-filled-color, $rating-icon-color);
+                    }
+                }
+            }
+        }
+
+        &__rate {
+            margin-top: var(--jb-rating-container-rate-margin-top, 0);
+            margin-bottom: var(--jb-rating-container-rate-margin-bottom, 0);
+            margin-right: var(--jb-rating-container-rate-margin-right, 0);
+            margin-left: var(--jb-rating-container-rate-margin-left, 8px);
+            padding-top: var(--jb-rating-container-rate-padding-top, 0);
+            padding-bottom: var(--jb-rating-container-rate-padding-bottom, 0);
+            padding-right: var(--jb-rating-container-rate-padding-right, 0);
+            padding-left: var(--jb-rating-container-rate-padding-left, 0);
+            color: var(--jb-rating-container-rate-color, $rating-rate-color);
+            font-size: var(--jb-rating-container-rate-font-size, 16px);
+        }
+    }
+}
