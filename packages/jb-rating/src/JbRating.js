@@ -26,12 +26,14 @@ export class JbRating extends LitElement {
       overItem: { type: Number },
       readOnly: { type: Boolean },
       showRate: { type: Boolean },
+      clickEvent: { type: String },
     };
   }
 
   constructor() {
     super();
     this.overItem = -1;
+    this.clickEvent = 'jb-rating-rate-clicked';
   }
 
   render() {
@@ -79,6 +81,13 @@ export class JbRating extends LitElement {
   _handleClick(index) {
     if (!this.readOnly && (index || index === 0)) {
       this.rate = index;
+      this.dispatchEvent(
+        new CustomEvent(this.clickEvent, {
+          bubbles: true,
+          composed: true,
+          detail: index,
+        })
+      );
     }
   }
 
