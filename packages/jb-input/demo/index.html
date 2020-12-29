@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <style>
+    body {
+      background: #F4F4F4;
+    }
+
+    jb-input {
+      --jb-input-container-color: red;
+      --jb-input-container-bg-color: white;
+      --jb-input-container-border-size: 0;
+      --jb-input-container-border-radius: 30px;
+      --jb-input-horizontal-padding: 16px;
+      --jb-input-input-padding-left: 8px;
+      --jb-input-placeholder-opacity: 0.6;
+      --jb-input-icon-opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <div id="demo">
+    <jb-input 
+    id="basicExample"
+    label="Example label"></jb-input>
+    <jb-input 
+    id="iconExample"
+    label="Example left icon"
+    righticon="search"></jb-input>
+    <jb-input 
+    id="iconExample"
+    lefticon="perm-identity"
+    placeholder="username"></jb-input>
+    <jb-input 
+    id="iconExample"
+    label="Example both icons"
+    righticon="search"
+    lefticon="apps"></jb-input>
+  </div>
+</body>
+</html>

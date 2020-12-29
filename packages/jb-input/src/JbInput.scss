@@ -1,0 +1,54 @@
+.jb-input {
+    &-container {
+        display: flex;
+        max-width: 370px;
+        border: var(--jb-input-container-border-size, 1px) solid var(--jb-input-container-border-color, black);
+        padding: var(--jb-input-container-vertical-padding, 8px) var(--jb-input-container-horizontal-padding, 8px);
+        margin-top: var(--jb-input-container-container-margin-top, 0);
+        margin-bottom: var(--jb-input-container-container-margin-bottom, 8px);
+        margin-left: var(--jb-input-container-container-margin-left, 0);
+        margin-right: var(--jb-input-container-container-margin-right, 0);
+        height: 30px;
+        align-items: center;
+        color: var(--jb-input-container-color, black);
+        background-color: var(--jb-input-container-bg-color, none);
+        border-radius: var(--jb-input-container-border-radius, none);
+        font-size: var(--jb-input-container-font-size, 14px);
+
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: var(--jb-input-color, black);;
+            opacity: var(--jb-input-placeholder-opacity, 1);
+            font-size: var(--jb-input-placeholder-font-size, 14px);
+        }
+        
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: var(--jb-input-color, black);
+            opacity: var(--jb-input-placeholder-opacity, 1);
+            font-size: var(--jb-input-placeholder-font-size, 14px);
+        }
+        
+        ::-ms-input-placeholder { /* Microsoft Edge */
+            color: var(--jb-input-color, black);
+            opacity: var(--jb-input-placeholder-opacity, 1);
+            font-size: var(--jb-input-placeholder-font-size, 14px);
+        }
+
+        &__input {
+            outline: none;
+            border: none;
+            flex: 1;
+            background-color: initial;
+            padding-left: var(--jb-input-input-padding-left, 4px);
+        }
+
+        &__input:focus {
+            outline: none;
+            border: none;
+        }
+
+        &__icon {
+            cursor: pointer;
+            opacity: var(--jb-input-icon-opacity, 1);
+        }
+    }
+}
