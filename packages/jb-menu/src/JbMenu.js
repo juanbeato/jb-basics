@@ -1,6 +1,8 @@
 import { html, css, LitElement, unsafeCSS } from 'lit-element';
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/iron-icons/iron-icons.js';
+import '@polymer/iron-icons/social-icons.js';
+import '@polymer/iron-icons/notification-icons.js';
 import style from './JbMenu.scss';
 
 export class JbMenu extends LitElement {
@@ -23,7 +25,6 @@ export class JbMenu extends LitElement {
   constructor() {
     super();
     this.items = [];
-    this.selected = 0;
     this.clickEvent = 'jb-menu-item-clicked';
   }
 
