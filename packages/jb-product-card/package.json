@@ -1,6 +1,6 @@
 {
   "name": "@juanbeato/jb-product-card",
-  "version": "2.2.0-alpha.0",
+  "version": "2.2.1-alpha.0",
   "description": "Webcomponent jb-product-card following open-wc recommendations",
   "author": "Juan Antonio Beato",
   "license": "MIT",
@@ -22,7 +22,7 @@
     "storybook:build": "build-storybook"
   },
   "dependencies": {
-    "@juanbeato/jb-button": "^1.0.3-alpha.0",
+    "@juanbeato/jb-button": "^1.0.4-alpha.0",
     "@polymer/iron-image": "^3.0.2",
     "lit-element": "^2.2.1",
     "lit-html": "^1.1.2",
