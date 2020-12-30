@@ -1,8 +1,8 @@
 {
-  "name": "jb-countdown",
+  "name": "@juanbeato/jb-countdown",
   "version": "0.0.0",
   "description": "Webcomponent jb-countdown following open-wc recommendations",
-  "author": "jb-countdown",
+  "author": "Juan Antonio Beato",
   "license": "MIT",
   "main": "jb-countdown.js",
   "module": "jb-countdown.js",
