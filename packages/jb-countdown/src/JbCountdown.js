@@ -40,6 +40,7 @@ export class JbCountdown extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
+    this.formatTimeTillDate = this.getThenDate();
     this.interval = setInterval(() => {
       this.formatTimeTillDate = this.getThenDate();
     }, 1000);
@@ -68,7 +69,7 @@ export class JbCountdown extends LitElement {
           this.countDownLabels && this.countDownLabels.days
             ? this.countDownLabels.days
             : '',
-        value: timeTillDate.format('D'),
+        value: timeTillDate.format('DD'),
       },
       hours: {
         label:
