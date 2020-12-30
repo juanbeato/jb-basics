@@ -1,0 +1,56 @@
+$default-color: black;
+$default-font-size: 16px;
+$default-font-weight: normal;
+
+.jb-countdown {
+    &-container {
+        width: var(--jb-countdown-container-width, 100%);
+        color: var(--jb-countdown-container-color, $default-color);
+        font-size: var(--jb-countdown-container-font-size, $default-font-size);
+        font-weight: var(--jb-countdown-container-font-weight, $default-font-weight);
+        margin-top: var(--jb-countdown-container-margin-top, 0);
+        margin-bottom: var(--jb-countdown-container-margin-bottom, 0);
+        margin-right: var(--jb-countdown-container-margin-right, 0);
+        margin-left: var(--jb-countdown-container-margin-left, 0);
+
+        &__label {
+            font-size: var(--jb-countdown-container-label-font-size, $default-font-size);
+            font-weight: var(--jb-countdown-container-label-font-weight, $default-font-weight);
+            margin-top: var(--jb-countdown-container-label-margin-top, 0);
+            margin-bottom: var(--jb-countdown-container-label-margin-bottom, 0);
+            margin-right: var(--jb-countdown-container-label-margin-right, 0);
+            margin-left: var(--jb-countdown-container-label-margin-left, 0);
+            text-align: var(--jb-countdown-container-label-text-align, left);
+        }
+
+        &__date {
+            width: var(--jb-countdown-container-date-width, 100%);
+            text-align: var(--jb-countdown-container-date-text-align, left);
+            display: flex;
+
+            &__item {
+                flex: var(--jb-countdown-container-date-item-flex, none);
+                margin-top: var(--jb-countdown-container-date-item-margin-top, 0);
+                margin-bottom: var(--jb-countdown-container-date-item-margin-bottom, 0);
+                margin-right: var(--jb-countdown-container-date-item-margin-right, 8px);
+                margin-left: var(--jb-countdown-container-date-item-margin-left, 0);
+
+                &__value {
+                    font-size: var(--jb-countdown-container-date-item-value-font-size, var(--jb-countdown-container-font-size, $default-font-size));
+                    font-weight: var(--jb-countdown-container-date-item-value-font-weight, var(--jb-countdown-container-font-weight, $default-font-size));
+                    color: var(--jb-countdown-container-date-item-value-color, var(--jb-countdown-container-color, $default-color));
+                }
+
+                &__label {
+                    font-size: var(--jb-countdown-container-date-item-label-font-size, var(--jb-countdown-container-font-size, $default-font-size));
+                    font-weight: var(--jb-countdown-container-date-item-label-font-weight, var(--jb-countdown-container-font-weight, $default-font-size));
+                    color: var(--jb-countdown-container-date-item-label-color, var(--jb-countdown-container-color, $default-color));
+                }
+            }
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+}

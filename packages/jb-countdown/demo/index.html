@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <style>
+    body {
+      background: #fafafa;
+    }
+    jb-countdown {
+      --jb-countdown-container-color: red;
+      --jb-countdown-container-date-item-label-color: black;
+      --jb-countdown-container-margin-top: 16px;
+      --jb-countdown-container-date-item-value-font-size: 24px;
+      --jb-countdown-container-date-text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="demo">
+    <jb-countdown 
+      date="05 26 2021, 6:00 am"
+      dateformat="MM DD YYYY, h:mm a"
+      label="Quedan"></jb-countdown>
+
+    <jb-countdown 
+      date="05 26 2021, 6:00 am"
+      dateformat="MM DD YYYY, h:mm a"
+      hidelabels></jb-countdown>
+  </div>
+</body>
+</html>
