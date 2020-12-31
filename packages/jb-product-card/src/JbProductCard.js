@@ -1,11 +1,17 @@
-/* eslint class-methods-use-this: ["error", { "exceptMethods": ["_skeletonTemplate"] }] */
+/* eslint class-methods-use-this: ["error", { "exceptMethods": ["_skeletonTemplate", "_itemIconTemplate"] }] */
 import { html, css, LitElement, unsafeCSS } from 'lit-element';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import '@polymer/iron-image/iron-image.js';
+import '@polymer/iron-icon/iron-icon.js';
+import '@polymer/iron-icons/iron-icons.js';
+import '@polymer/iron-icons/notification-icons.js';
 import '@juanbeato/jb-button';
 import '@juanbeato/jb-countdown';
 import { defineCustomElements as initSkeleton } from 'skeleton-webcomponent-loader/loader/index.js';
 import style from './JbProductCard.scss';
+
+const moment = require('moment');
+moment.locale('es-en');
 
 export class JbProductCard extends LitElement {
   static get styles() {
@@ -21,6 +27,7 @@ export class JbProductCard extends LitElement {
       title: { type: String },
       subTitle: { type: String },
       description: { type: String },
+      date: { type: Object },
       countDown: { type: Object },
       image: { type: String },
       view: { type: String },
@@ -40,6 +47,7 @@ export class JbProductCard extends LitElement {
     this.title = '';
     this.subTitle = '';
     this.description = '';
+    this.date = {};
     this.countDown = {};
     this.image = '';
     this.view = 'horizontal';
@@ -69,6 +77,7 @@ export class JbProductCard extends LitElement {
       <div class="jb-product-card__main-container__data-container">
         ${this._paragraphTemplate(this.title, 'title')}
         ${this._paragraphTemplate(this.description, 'description')}
+        ${this._dateTemplate(this.date)}
         ${this._countDownTemplate(this.countDown)}
         <div class="jb-product-card__main-container__data-container__footer">
           ${this._timeTemplate(this.time)} ${this._priceTemplate(this.price)}
@@ -133,9 +142,9 @@ export class JbProductCard extends LitElement {
   }
 
   _priceTemplate(price) {
-    let template = unsafeHTML(`<jb-button class="jb-product-card__main-container__data-container__footer__right__button"
+    let template = this.buttonText ? html`<jb-button class="jb-product-card__main-container__data-container__footer__right__button"
                               secondary
-                              buttontext=${this.buttonText}></jb-button>`);
+                              buttontext=${this.buttonText}></jb-button>` : html``
     if (price) {
       template = unsafeHTML(
         `<p class="jb-product-card__main-container__data-container__footer__right__text">${price}</p>`
@@ -170,9 +179,29 @@ export class JbProductCard extends LitElement {
           ${this.isLoading
             ? this._skeletonTemplate({ width: '50%' })
             : unsafeHTML(`<jb-countdown class="jb-product-card__main-container__data-container__countdown__text"
-                        date=${countDown.date} 
-                        dateformat=${countDown.dateFormat} 
-                        hidelabels=${countDown.hideLabels}></jb-countdown>`)}
+                        ${countDown.date ? `date="${countDown.date}"` : ''}
+                        ${countDown.dateFormat ? `dateformat="${countDown.dateFormat}"` : ''}
+                        ${countDown.label ? `label="${countDown.label}"` : ''}
+                        ${countDown.humanize ? `humanize="${countDown.humanize}"` : ''}
+                        ></jb-countdown>`)}
+        </div>`
+      : html``;
+  }
+
+  _dateTemplate(date) {
+    let formatDate = moment(date.value).format(date.dateFormat);
+    if (formatDate) {
+      formatDate = formatDate.charAt(0).toUpperCase() + formatDate.slice(1)
+    }
+    return Object.keys(date).length
+      ? html`<div
+          class="jb-product-card__main-container__data-container__date">
+          ${this.isLoading
+            ? this._skeletonTemplate({ width: '50%' })
+            : html`
+              ${this._itemIconTemplate(date.icon)}
+              <p class="jb-product-card__main-container__data-container__date__text">${formatDate}</p>
+            `}
         </div>`
       : html``;
   }
@@ -183,6 +212,15 @@ export class JbProductCard extends LitElement {
       ${config.height ? `height="${config.height}"` : ''}
       ${config.count ? `count="${config.count}"` : ''}
     ></nb-skeleton>`);
+  }
+
+  _itemIconTemplate(icon) {
+    return icon
+      ? html`<iron-icon
+          class="jb-product-card__main-container__data-container__date__icon"
+          icon=${icon}
+        ></iron-icon>`
+      : html``;
   }
 
   _getTemplateType(view) {

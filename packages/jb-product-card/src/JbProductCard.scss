@@ -1,6 +1,6 @@
-$default-countdown-font-weight: normal;
-$default-countdown-font-size: 16px;
-$default-countdown-color: black;
+$default-font-weight: normal;
+$default-font-size: 16px;
+$default-color: black;
 
 .jb-product-card {
     &__main-container {
@@ -10,13 +10,23 @@ $default-countdown-color: black;
         margin-right: var(--jb-product-card-main-container-margin-right, 0);
         min-height: var(--jb-product-card-main-container-min-height, initial);
         border-radius: var(--jb-product-card-main-container-border-radius, 0);
+        border-top-left-radius: var(--jb-product-card-main-container-border-top-left-radius, var(--jb-product-card-main-container-border-radius, 0));
+        border-top-right-radius: var(--jb-product-card-main-container-border-top-right-radius, var(--jb-product-card-main-container-border-radius, 0));
+        border-bottom-left-radius: var(--jb-product-card-main-container-border-bottom-left-radius, var(--jb-product-card-main-container-border-radius, 0));
+        border-bottom-right-radius: var(--jb-product-card-main-container-border-bottom-right-radius, var(--jb-product-card-main-container-border-radius, 0));
         box-shadow: var(--jb-product-card-main-container-box-shadow, none);
+        background-color: var(--jb-product-card-main-container-bg-color, none);
+        align-items: var(--jb-product-card-main-container-align-items, initial);
 
         &__image__container {
             &__img {
                 width: 100%;
                 box-shadow: var(--jb-product-card-image-box-shadow, none);
                 border-radius: var(--jb-product-card-image-border-radius, 0);
+                border-top-left-radius: var(--jb-product-card-image-border-top-left-radius, var(--jb-product-card-image-border-radius, 0));
+                border-top-right-radius: var(--jb-product-card-image-border-top-right-radius, var(--jb-product-card-image-border-radius, 0));
+                border-bottom-left-radius: var(--jb-product-card-image-border-bottom-left-radius, var(--jb-product-card-image-border-radius, 0));
+                border-bottom-right-radius: var(--jb-product-card-image-border-bottom-right-radius, var(--jb-product-card-image-border-radius, 0));
             }
 
             nb-skeleton {
@@ -76,6 +86,40 @@ $default-countdown-color: black;
                 }
             }
 
+            &__date {
+                margin-top: var(--jb-product-card-data-container-date-margin-top, 0);
+                margin-bottom: var(--jb-product-card-data-container-date-margin-bottom, 8px);
+                margin-left: var(--jb-product-card-data-container-date-margin-left, 0);
+                margin-right: var(--jb-product-card-data-container-date-margin-right, 0);
+                color: var(--jb-product-card-data-container-date-color, $default-color);
+                font-size: var(--jb-product-card-data-container-date-font-size, $default-font-size);
+                font-weight: var(--jb-product-card-data-container-date-font-weight, $default-font-weight);
+                display: flex;
+                align-items: center;
+
+                &__text {
+                    margin: 0;
+                    color: var(--jb-product-card-data-container-date-text-color, $default-color);
+                    font-size: var(--jb-product-card-data-container-date-text-font-size, $default-font-size);
+                    font-weight: var(--jb-product-card-data-container-date-text-font-weight, $default-font-weight);
+                    margin-top: var(--jb-product-card-data-container-date-icon-margin-top, 0);
+                    margin-bottom: var(--jb-product-card-data-container-date-icon-margin-bottom, 0);
+                    margin-left: var(--jb-product-card-data-container-date-icon-margin-left, 0);
+                    margin-right: var(--jb-product-card-data-container-date-icon-margin-right, 0);
+                }
+
+                &__icon {
+                    color: var(--jb-product-card-data-container-date-icon-color, $default-color);
+                    --iron-icon-height: var(--jb-product-card-data-container-date-icon-font-size, $default-font-size);
+                    --iron-icon-width: var(--jb-product-card-data-container-date-icon-font-size, $default-font-size);
+                    font-weight: var(--jb-product-card-data-container-date-icon-font-weight, $default-font-weight);
+                    margin-top: var(--jb-product-card-data-container-date-icon-margin-top, 0);
+                    margin-bottom: var(--jb-product-card-data-container-date-icon-margin-bottom, 0);
+                    margin-left: var(--jb-product-card-data-container-date-icon-margin-left, 0);
+                    margin-right: var(--jb-product-card-data-container-date-icon-margin-right, 8px);
+                }
+            }
+
             &__countdown {
                 margin-top: var(--jb-product-card-data-container-countdown-margin-top, 0);
                 margin-bottom: var(--jb-product-card-data-container-countdown-margin-bottom, 8px);
@@ -84,15 +128,17 @@ $default-countdown-color: black;
 
                 jb-countdown {
                     --jb-countdown-container-width: var(--jb-product-card-data-container-countdown-container-width, 100%);
-                    --jb-countdown-container-color: var(--jb-product-card-data-container-countdown-container-color, $default-countdown-color);
-                    --jb-countdown-container-font-size: var(--jb-product-card-data-container-countdown-container-font-size, $default-countdown-font-size);
-                    --jb-countdown-container-font-weight: var(--jb-product-card-data-container-countdown-container-font-weight, $default-countdown-font-weight);
+                    --jb-countdown-container-color: var(--jb-product-card-data-container-countdown-container-color, $default-color);
+                    --jb-countdown-container-font-size: var(--jb-product-card-data-container-countdown-container-font-size, $default-font-size);
+                    --jb-countdown-container-font-weight: var(--jb-product-card-data-container-countdown-container-font-weight, $default-font-weight);
                     --jb-countdown-container-margin-top: var(--jb-product-card-data-container-countdown-container-margin-top, 0);
                     --jb-countdown-container-margin-bottom: var(--jb-product-card-data-container-countdown-container-margin-bottom, 0);
                     --jb-countdown-container-margin-right: var(--jb-product-card-data-container-countdown-container-margin-right, 0);
                     --jb-countdown-container-margin-left: var(--jb-product-card-data-container-countdown-container-margin-left, 0);
-                    --jb-countdown-container-label-font-size: var(--jb-product-card-data-container-countdown-container-label-font-size, $default-countdown-font-size);
-                    --jb-countdown-container-label-font-weight: var(--jb-product-card-data-container-countdown-container-label-font-weight, $default-countdown-font-weight);
+                    --jb-countdown-container-display: var(--jb-product-card-data-container-countdown-container-display, block);
+                    --jb-countdown-container-align-items: var(--jb-product-card-data-container-countdown-container-align-items, none);
+                    --jb-countdown-container-label-font-size: var(--jb-product-card-data-container-countdown-container-label-font-size, $default-font-size);
+                    --jb-countdown-container-label-font-weight: var(--jb-product-card-data-container-countdown-container-label-font-weight, $default-font-weight);
                     --jb-countdown-container-label-margin-top: var(--jb-product-card-data-container-countdown-container-label-margin-top, 0);
                     --jb-countdown-container-label-margin-bottom: var(--jb-product-card-data-container-countdown-container-label-margin-bottom, 0);
                     --jb-countdown-container-label-margin-right: var(--jb-product-card-data-container-countdown-container-label-margin-right, 0);
@@ -105,12 +151,12 @@ $default-countdown-color: black;
                     --jb-countdown-container-date-item-margin-bottom: var(--jb-product-card-data-container-countdown-container-date-item-margin-bottom, 0);
                     --jb-countdown-container-date-item-margin-right: var(--jb-product-card-data-container-countdown-container-date-item-margin-right, 8px);
                     --jb-countdown-container-date-item-margin-left: var(--jb-product-card-data-container-countdown-container-date-item-margin-left, 0);
-                    --jb-countdown-container-date-item-value-font-size: var(--jb-product-card-data-container-countdown-container-date-item-value-font-size, $default-countdown-font-size);
-                    --jb-countdown-container-date-item-value-font-weight: var(--jb-product-card-data-container-countdown-container-date-item-value-font-weight, $default-countdown-font-size);
-                    --jb-countdown-container-date-item-value-color: var(--jb-product-card-data-container-countdown-container-date-item-value-color, $default-countdown-color);
-                    --jb-countdown-container-date-item-label-font-size: var(--jb-product-card-data-container-countdown-container-date-item-label-font-size, $default-countdown-font-size);
-                    --jb-countdown-container-date-item-label-font-weight: var(--jb-product-card-data-container-countdown-container-date-item-label-font-weight, $default-countdown-font-size);
-                    --jb-countdown-container-date-item-label-color: var(--jb-product-card-data-container-countdown-container-date-item-label-color, $default-countdown-color);
+                    --jb-countdown-container-date-item-value-font-size: var(--jb-product-card-data-container-countdown-container-date-item-value-font-size, $default-font-size);
+                    --jb-countdown-container-date-item-value-font-weight: var(--jb-product-card-data-container-countdown-container-date-item-value-font-weight, $default-font-size);
+                    --jb-countdown-container-date-item-value-color: var(--jb-product-card-data-container-countdown-container-date-item-value-color, $default-color);
+                    --jb-countdown-container-date-item-label-font-size: var(--jb-product-card-data-container-countdown-container-date-item-label-font-size, $default-font-size);
+                    --jb-countdown-container-date-item-label-font-weight: var(--jb-product-card-data-container-countdown-container-date-item-label-font-weight, $default-font-size);
+                    --jb-countdown-container-date-item-label-color: var(--jb-product-card-data-container-countdown-container-date-item-label-color, $default-color);
                 }
             }
 
