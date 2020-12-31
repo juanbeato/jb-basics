@@ -52,6 +52,8 @@ export class JbProductCardList extends LitElement {
         ${card.title ? `title="${card.title}"` : ''}
         ${card.subTitle ? `subtitle="${card.subTitle}"` : ''}
         ${card.description ? `description="${card.description}"` : ''}
+        ${card.countdown ? `countdown='${JSON.stringify(card.countdown)}'` : ''}
+        ${card.date ? `date='${JSON.stringify(card.date)}'` : ''}
         view=${this.itemView}
         ${card.price ? `price="${card.price}"` : ''}
         ${card.time ? `time="${card.time}"` : ''}
