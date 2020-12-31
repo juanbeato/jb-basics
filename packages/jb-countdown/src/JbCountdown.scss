@@ -12,6 +12,8 @@ $default-font-weight: normal;
         margin-bottom: var(--jb-countdown-container-margin-bottom, 0);
         margin-right: var(--jb-countdown-container-margin-right, 0);
         margin-left: var(--jb-countdown-container-margin-left, 0);
+        display: var(--jb-countdown-container-display, block);
+        align-items: var(--jb-countdown-container-align-items, none);
 
         &__label {
             font-size: var(--jb-countdown-container-label-font-size, $default-font-size);
@@ -39,6 +41,10 @@ $default-font-weight: normal;
                     font-size: var(--jb-countdown-container-date-item-value-font-size, var(--jb-countdown-container-font-size, $default-font-size));
                     font-weight: var(--jb-countdown-container-date-item-value-font-weight, var(--jb-countdown-container-font-weight, $default-font-size));
                     color: var(--jb-countdown-container-date-item-value-color, var(--jb-countdown-container-color, $default-color));
+                    margin-top: var(--jb-countdown-container-date-item-value-margin-top, 0);
+                    margin-bottom: var(--jb-countdown-container-date-item-value-margin-bottom, 0);
+                    margin-right: var(--jb-countdown-container-date-item-value-margin-right, 0);
+                    margin-left: var(--jb-countdown-container-date-item-value-margin-left, 0);
                 }
 
                 &__label {
@@ -47,10 +53,6 @@ $default-font-weight: normal;
                     color: var(--jb-countdown-container-date-item-label-color, var(--jb-countdown-container-color, $default-color));
                 }
             }
-        }
-
-        p {
-            margin: 0;
         }
     }
 }

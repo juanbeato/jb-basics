@@ -2,6 +2,7 @@ import { html, css, LitElement, unsafeCSS } from 'lit-element';
 import style from './JbCountdown.scss';
 
 const moment = require('moment');
+moment.locale('es-en');
 
 export class JbCountdown extends LitElement {
   static get styles() {
@@ -20,7 +21,7 @@ export class JbCountdown extends LitElement {
       label: { type: String },
       dateFormat: { type: String },
       formatTimeTillDate: { type: String },
-      hideLabels: { type: Boolean },
+      humanize: { type: Boolean },
       countDownLabels: { type: Object },
     };
   }
@@ -28,9 +29,11 @@ export class JbCountdown extends LitElement {
   constructor() {
     super();
     this.now = moment();
-    this.hideLabels = false;
+    this.humanize = false;
     this.label = '';
     this.countDownLabels = {
+      years: 'years',
+      months: 'months',
       days: 'days',
       hours: 'hours',
       minutes: 'minutes',
@@ -40,10 +43,14 @@ export class JbCountdown extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    this.formatTimeTillDate = this.getThenDate();
-    this.interval = setInterval(() => {
-      this.formatTimeTillDate = this.getThenDate();
-    }, 1000);
+    const thenDate = this.getThenDate();
+    this.formatTimeTillDate = thenDate.formatDate;
+
+    if (thenDate && thenDate.duration && thenDate.duration.valueOf() > 0) {
+      this.interval = setInterval(() => {
+        this.formatTimeTillDate = this.getThenDate().formatDate;
+      }, 1000);
+    }    
   }
 
   disconnectedCallback() {
@@ -62,64 +69,63 @@ export class JbCountdown extends LitElement {
   }
 
   getThenDate() {
-    const timeTillDate = moment(moment(this.date, this.dateFormat) - moment());
-    const formatTimeTillDate = {
-      days: {
-        label:
-          this.countDownLabels && this.countDownLabels.days
-            ? this.countDownLabels.days
-            : '',
-        value: timeTillDate.format('DD'),
-      },
-      hours: {
-        label:
-          this.countDownLabels && this.countDownLabels.hours
-            ? this.countDownLabels.hours
-            : '',
-        value: timeTillDate.format('HH'),
-      },
-      minutes: {
-        label:
-          this.countDownLabels && this.countDownLabels.minutes
-            ? this.countDownLabels.minutes
-            : '',
-        value: timeTillDate.format('mm'),
-      },
-      seconds: {
-        label:
-          this.countDownLabels && this.countDownLabels.seconds
-            ? this.countDownLabels.seconds
-            : '',
-        value: timeTillDate.format('ss'),
-      },
-    };
-    return formatTimeTillDate;
+    let formatDate;
+    const duration = moment.duration(moment(this.date, this.dateFormat).diff(moment()));
+    const durationData = duration._data;
+    const { years = '', months = '', days = '', hours = '', minutes = '', seconds = '' } = durationData;
+
+    const formatTimeTillDate = duration.valueOf() > 0 ? Object.assign({}, 
+      years ? { years } : {},
+      months ? { months } : {},
+      days ? { days } : {},
+      { hours, minutes, seconds }
+    ) : { hours: 0, minutes: 0, seconds: 0 };
+
+    if (!this.humanize) {
+      formatDate = Object.keys(formatTimeTillDate).map(item => {
+        return {
+          type: item,
+          label: this.countDownLabels && this.countDownLabels[item]
+                  ? this.countDownLabels[item]
+                  : '',
+          value: formatTimeTillDate[item] < 10 
+                  ? formatTimeTillDate[item].toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false}) 
+                  : formatTimeTillDate[item].toString()
+        }
+      });
+    } else {
+      formatDate = Object.keys(formatTimeTillDate).map(item => `${formatTimeTillDate[item]}${item.slice(0, 1)}`).join(' ');
+    }
+
+    return {
+      formatDate,
+      duration
+    }
   }
 
   get getDateTemplate() {
     let template = html``;
     if (this.formatTimeTillDate) {
-      template = this.hideLabels
-        ? html`<p class="jb-countdown-container__date">
-            ${Object.values(this.formatTimeTillDate) &&
-            Object.values(this.formatTimeTillDate).length
-              ? Object.values(this.formatTimeTillDate)
-                  .map(item => item.value)
-                  .join(':')
-              : ''}
-          </p>`
-        : html`<div class="jb-countdown-container__date">
-            ${Object.keys(this.formatTimeTillDate).map(item => {
-              return html`<div class="jb-countdown-container__date__item">
-                <p class="jb-countdown-container__date__item__value">
-                  ${this.formatTimeTillDate[item].value}
-                </p>
-                <p class="jb-countdown-container__date__item__label">
-                  ${this.formatTimeTillDate[item].label}
-                </p>
-              </div>`;
-            })}
-          </div>`;
+      template = this.humanize 
+                  ? html`<div class="jb-countdown-container__date">
+                    <div class="jb-countdown-container__date__item">
+                        <p class="jb-countdown-container__date__item__value">
+                          ${this.formatTimeTillDate}
+                        </p>
+                    </div>
+                  </div>` 
+                  : html`<div class="jb-countdown-container__date">
+                          ${this.formatTimeTillDate.map(item => {
+                            return html`<div class="jb-countdown-container__date__item">
+                              <p class="jb-countdown-container__date__item__value">
+                                ${item.value}
+                              </p>
+                              <p class="jb-countdown-container__date__item__label">
+                                ${item.label}
+                              </p>
+                            </div>`;
+                          })}
+                        </div>`;
     }
     return template;
   }
