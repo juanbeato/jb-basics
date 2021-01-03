@@ -7,11 +7,21 @@
     padding-left: var(--jb-header-p-padding-left, 0);
     padding-right: var(--jb-header-p-padding-right, 0);
     box-sizing: border-box;
+    background-color: var(--jb-header-bg-color, none);
 
     &__left-container {
-        font-weight: var(--jb-header-left-container-font-weight, normal);;
+        font-weight: var(--jb-header-left-container-font-weight, normal);
         font-size: var(--jb-header-left-container-font-size, 24px);
         flex: 1;
+
+        &__icon {
+            background-color: var(--jb-header-left-container-icon-bg-color, none);
+            border-radius: var(--jb-header-left-container-icon-border-radius, 0);
+            padding-top: var(--jb-header-left-container-iconpadding-top, 0);
+            padding-bottom: var(--jb-header-left-container-iconpadding-bottom, 0);
+            padding-left: var(--jb-header-left-container-iconpadding-left, 0);
+            padding-right: var(--jb-header-left-container-iconpadding-right, 0);
+        }
     }
 
     &__left-container, &__right-container {

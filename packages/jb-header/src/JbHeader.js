@@ -42,17 +42,19 @@ export class JbHeader extends LitElement {
       <div class="jb-header__${type}-container">
         <slot name=${type}>
           ${this.constructor._itemTextTemplate(this[`${type}Text`], type)}
-          ${this.constructor._itemIconTemplate(this[`${type}Icon`], type)}
+          ${this._itemIconTemplate(this[`${type}Icon`], type)}
         </slot>
       </div>
     `;
   }
 
-  static _itemIconTemplate(icon, type) {
+  _itemIconTemplate(icon, type) {
     return icon
       ? html`<iron-icon
           class="jb-header__${type}-container__icon"
           icon=${icon}
+          @click=${() => this._handleClick(`jb-header-icon-${type}-clicked`)}
+          @keydown=${() => this._handleClick(`jb-header-icon-${type}-clicked`)}
         ></iron-icon>`
       : html``;
   }
@@ -61,5 +63,15 @@ export class JbHeader extends LitElement {
     return text
       ? html`<p class="jb-header__${type}-container__text">${text}</p>`
       : html``;
+  }
+
+  _handleClick(eventName, detail = {}) {
+    this.dispatchEvent(
+      new CustomEvent(eventName, {
+        bubbles: true,
+        composed: true,
+        detail,
+      })
+    );
   }
 }
