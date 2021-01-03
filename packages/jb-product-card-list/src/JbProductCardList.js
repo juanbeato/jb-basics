@@ -49,6 +49,7 @@ export class JbProductCardList extends LitElement {
   _productCardTemplate(card, mockCard) {
     return html`${unsafeHTML(`<jb-product-card class="jb-product-card-list-container__item"
         ${card.image ? `image="${!mockCard ? card.image : ''}"` : ''}
+        ${card.id ? `cardid="${card.id}"` : ''}
         ${card.title ? `title="${card.title}"` : ''}
         ${card.subTitle ? `subtitle="${card.subTitle}"` : ''}
         ${card.description ? `description="${card.description}"` : ''}
