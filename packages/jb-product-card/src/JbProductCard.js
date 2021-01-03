@@ -24,6 +24,7 @@ export class JbProductCard extends LitElement {
 
   static get properties() {
     return {
+      cardId: { type: Number },
       title: { type: String },
       subTitle: { type: String },
       description: { type: String },
@@ -39,11 +40,13 @@ export class JbProductCard extends LitElement {
         reflect: true,
       },
       viewTemplates: { type: Object },
+      clickEvent: { type: String },
     };
   }
 
   constructor() {
     super();
+    this.cardId = '';
     this.title = '';
     this.subTitle = '';
     this.description = '';
@@ -60,12 +63,15 @@ export class JbProductCard extends LitElement {
       horizontal: 'standard',
       banner: 'banner',
     };
+    this.clickEvent = 'jb-product-card-item-clicked';
     initSkeleton();
   }
 
   render() {
     return html`
-      <div class="jb-product-card__main-container">
+      <div class="jb-product-card__main-container"
+        @click=${() => this._handleClick(this.cardId)}
+        @keydown=${() => this._handleClick(this.cardId)}>
         ${this[`_${this._getTemplateType(this.view)}Template`]}
       </div>
     `;
@@ -229,5 +235,15 @@ export class JbProductCard extends LitElement {
 
   _updateLoading(value) {
     this.isLoading = value;
+  }
+
+  _handleClick(cardId) {
+    this.dispatchEvent(
+      new CustomEvent(this.clickEvent, {
+        bubbles: true,
+        composed: true,
+        detail: cardId,
+      })
+    );
   }
 }
