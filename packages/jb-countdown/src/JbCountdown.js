@@ -15,8 +15,8 @@ export class JbCountdown extends LitElement {
 
   static get properties() {
     return {
-      now: { type: Number },
-      then: { type: Number },
+      now: { type: Number, hasChanged: () => false },
+      then: { type: Number, hasChanged: () => false},
       date: { type: String },
       label: { type: String },
       dateFormat: { type: String },
@@ -45,13 +45,27 @@ export class JbCountdown extends LitElement {
     super.connectedCallback();
     const thenDate = this.getThenDate();
     this.formatTimeTillDate = thenDate.formatDate;
+  }
+
+  shouldUpdate(changedProperties) {
+    if (changedProperties.has('formatTimeTillDate')) {
+      return super.shouldUpdate(changedProperties);
+    }
+  }
+
+  firstUpdated(changedProperties) {
+    const thenDate = this.getThenDate();
+    this.formatTimeTillDate = thenDate.formatDate;
 
     if (thenDate && thenDate.duration && thenDate.duration.valueOf() > 0) {
       this.interval = setInterval(() => {
         this.formatTimeTillDate = this.getThenDate().formatDate;
       }, 1000);
-    }    
+    }
+
+    super.firstUpdated(changedProperties);
   }
+
 
   disconnectedCallback() {
     super.disconnectedCallback();

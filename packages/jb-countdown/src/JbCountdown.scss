@@ -48,6 +48,10 @@ $default-font-weight: normal;
                 }
 
                 &__label {
+                    margin-top: var(--jb-countdown-container-date-item-label-margin-top, 0);
+                    margin-bottom: var(--jb-countdown-container-date-item-label-margin-bottom, 0);
+                    margin-right: var(--jb-countdown-container-date-item-label-margin-right, 0);
+                    margin-left: var(--jb-countdown-container-date-item-label-margin-left, 0);
                     font-size: var(--jb-countdown-container-date-item-label-font-size, var(--jb-countdown-container-font-size, $default-font-size));
                     font-weight: var(--jb-countdown-container-date-item-label-font-weight, var(--jb-countdown-container-font-weight, $default-font-size));
                     color: var(--jb-countdown-container-date-item-label-color, var(--jb-countdown-container-color, $default-color));
