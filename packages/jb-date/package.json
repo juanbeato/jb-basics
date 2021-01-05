@@ -1,8 +1,8 @@
 {
-  "name": "jb-date",
+  "name": "@juanbeato/jb-date",
   "version": "0.0.0",
   "description": "Webcomponent jb-date following open-wc recommendations",
-  "author": "jb-date",
+  "author": "Juan Antonio Beato",
   "license": "MIT",
   "main": "jb-date.js",
   "module": "jb-date.js",
