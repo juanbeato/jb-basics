@@ -1,0 +1,37 @@
+$default-color: black;
+$default-font-size: 16px;
+$default-font-weight: normal;
+
+.jb-date {
+    &__main-container {
+        display: flex;
+        align-items: center;
+        margin-top: var(--jb-date-main-container-margin-top, 0);
+        margin-bottom: var(--jb-date-main-container-margin-bottom, 0);
+        margin-left: var(--jb-date-main-container-margin-left, 0);
+        margin-right: var(--jb-date-main-container-margin-right, 0);
+        color: var(--jb-date-main-container-color, $default-color);
+        font-size: var(--jb-date-main-container-font-size, $default-font-size);
+        font-weight: var(--jb-date-main-container-font-weight, $default-font-weight);
+
+        &__text {
+            margin-top: var(--jb-date-main-container-text-margin-top, 0);
+            margin-bottom: var(--jb-date-main-container-text-margin-bottom, 0);
+            margin-left: var(--jb-date-main-container-text-margin-left, 0);
+            margin-right: var(--jb-date-main-container-text-margin-right, 0);
+            color: var(--jb-date-main-container-text-color, $default-color);
+            font-size: var(--jb-date-main-container-text-font-size, $default-font-size);
+            font-weight: var(--jb-date-main-container-text-font-weight, $default-font-weight);
+        }
+
+        &__icon {
+            margin-top: var(--jb-date-main-container-icon-margin-top, 0);
+            margin-bottom: var(--jb-date-main-container-icon-margin-bottom, 0);
+            margin-left: var(--jb-date-main-container-icon-margin-left, 0);
+            margin-right: var(--jb-date-main-container-icon-margin-right, 0);
+            color: var(--jb-date-main-container-icon-color, $default-color);
+            font-size: var(--jb-date-main-container-icon-font-size, $default-font-size);
+            font-weight: var(--jb-date-main-container-icon-font-weight, $default-font-weight);
+        }
+    }
+}
