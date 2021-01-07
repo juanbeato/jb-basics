@@ -28,7 +28,7 @@ $default-font-weight: normal;
             margin-top: var(--jb-date-main-container-icon-margin-top, 0);
             margin-bottom: var(--jb-date-main-container-icon-margin-bottom, 0);
             margin-left: var(--jb-date-main-container-icon-margin-left, 0);
-            margin-right: var(--jb-date-main-container-icon-margin-right, 0);
+            margin-right: var(--jb-date-main-container-icon-margin-right, 4px);
             color: var(--jb-date-main-container-icon-color, $default-color);
             font-size: var(--jb-date-main-container-icon-font-size, $default-font-size);
             font-weight: var(--jb-date-main-container-icon-font-weight, $default-font-weight);
