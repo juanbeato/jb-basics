@@ -100,26 +100,26 @@ $default-card-countdown-font-weight: normal;
             --jb-product-card-data-container-countdown-container-date-item-label-font-weight: var(--jb-product-card-list-item-data-container-countdown-container-date-item-label-font-weight, $default-card-countdown-font-size);
             --jb-product-card-data-container-countdown-container-date-item-label-color: var(--jb-product-card-list-item-data-container-countdown-container-date-item-label-color, $default-card-countdown-color);
             --jb-product-card-data-container-date-margin-top: var(--jb-product-card-list-item-data-container-date-container-margin-top, 0);
-            --jb-product-card-data-container-date-margin-bottom: var(--jb-product-card-list-item-data-container-date-container-margin-bottom, 8px);
+            --jb-product-card-data-container-date-margin-bottom: var(--jb-product-card-list-item-data-container-date-container-margin-bottom, 0);
             --jb-product-card-data-container-date-margin-left: var(--jb-product-card-list-item-data-container-date-container-margin-left, 0);
             --jb-product-card-data-container-date-margin-right: var(--jb-product-card-list-item-data-container-date-container-margin-right, 0);
             --jb-product-card-data-container-date-color: var(--jb-product-card-list-item-data-container-date-container-color, $default-color);
             --jb-product-card-data-container-date-font-size: var(--jb-product-card-list-item-data-container-date-container-font-size, $default-font-size);
             --jb-product-card-data-container-date-font-weight: var(--jb-product-card-list-item-data-container-date-container-font-weight, $default-font-weight);
+            --jb-product-card-data-container-date-text-margin-top: var(--jb-product-card-list-item-data-container-date-container-text-margin-top, 0);
+            --jb-product-card-data-container-date-text-margin-bottom: var(--jb-product-card-list-item-data-container-date-container-text-margin-bottom, 0);
+            --jb-product-card-data-container-date-text-margin-left: var(--jb-product-card-list-item-data-container-date-container-text-margin-left, 0);
+            --jb-product-card-data-container-date-text-margin-right: var(--jb-product-card-list-item-data-container-date-container-text-margin-right, 0);
             --jb-product-card-data-container-date-text-color: var(--jb-product-card-list-item-data-container-date-container-text-color, $default-color);
             --jb-product-card-data-container-date-text-font-size: var(--jb-product-card-list-item-data-container-date-container-text-font-size, $default-font-size);
             --jb-product-card-data-container-date-text-font-weight: var(--jb-product-card-list-item-data-container-date-container-text-font-weight, $default-font-weight);
             --jb-product-card-data-container-date-icon-margin-top: var(--jb-product-card-list-item-data-container-date-container-icon-margin-top, 0);
             --jb-product-card-data-container-date-icon-margin-bottom: var(--jb-product-card-list-item-data-container-date-container-icon-margin-bottom, 0);
             --jb-product-card-data-container-date-icon-margin-left: var(--jb-product-card-list-item-data-container-date-container-icon-margin-left, 0);
-            --jb-product-card-data-container-date-icon-margin-right: var(--jb-product-card-list-item-data-container-date-container-icon-margin-right, 0);
+            --jb-product-card-data-container-date-icon-margin-right: var(--jb-product-card-list-item-data-container-date-container-icon-margin-right, 4px);
             --jb-product-card-data-container-date-icon-color: var(--jb-product-card-list-item-data-container-date-container-icon-color, $default-color);
             --jb-product-card-data-container-date-icon-font-size: var(--jb-product-card-list-item-data-container-date-container-icon-font-size, $default-font-size);
             --jb-product-card-data-container-date-icon-font-weight: var(--jb-product-card-list-item-data-container-date-container-icon-font-weight, $default-font-weight);
-            --jb-product-card-data-container-date-icon-margin-top: var(--jb-product-card-list-item-data-container-date-container-icon-margin-top, 0);
-            --jb-product-card-data-container-date-icon-margin-bottom: var(--jb-product-card-list-item-data-container-date-container-icon-margin-bottom, 0);
-            --jb-product-card-data-container-date-icon-margin-left: var(--jb-product-card-list-item-data-container-date-container-icon-margin-left, 0);
-            --jb-product-card-data-container-date-icon-margin-right: var(--jb-product-card-list-item-data-container-date-container-icon-margin-right, 8px);
         }
     }
 }
