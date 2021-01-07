@@ -1,12 +1,10 @@
-/* eslint class-methods-use-this: ["error", { "exceptMethods": ["_skeletonTemplate", "_itemIconTemplate"] }] */
+/* eslint class-methods-use-this: ["error", { "exceptMethods": ["_skeletonTemplate"] }] */
 import { html, css, LitElement, unsafeCSS } from 'lit-element';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import '@polymer/iron-image/iron-image.js';
-import '@polymer/iron-icon/iron-icon.js';
-import '@polymer/iron-icons/iron-icons.js';
-import '@polymer/iron-icons/notification-icons.js';
 import '@juanbeato/jb-button';
 import '@juanbeato/jb-countdown';
+import '@juanbeato/jb-date';
 import { defineCustomElements as initSkeleton } from 'skeleton-webcomponent-loader/loader/index.js';
 import style from './JbProductCard.scss';
 
@@ -204,10 +202,13 @@ export class JbProductCard extends LitElement {
           class="jb-product-card__main-container__data-container__date">
           ${this.isLoading
             ? this._skeletonTemplate({ width: '50%' })
-            : html`
-              ${this._itemIconTemplate(date.icon)}
-              <p class="jb-product-card__main-container__data-container__date__text">${formatDate}</p>
-            `}
+            : html`${unsafeHTML(`
+              <jb-date class="jb-product-card__main-container__data-container__date__text"
+              date="${date.value}"
+              format="${date.dateFormat}"
+              ${date.icon ? `icon="${date.icon}"` : ''}
+              ></jb-date>
+            `)}`}
         </div>`
       : html``;
   }
@@ -218,15 +219,6 @@ export class JbProductCard extends LitElement {
       ${config.height ? `height="${config.height}"` : ''}
       ${config.count ? `count="${config.count}"` : ''}
     ></nb-skeleton>`);
-  }
-
-  _itemIconTemplate(icon) {
-    return icon
-      ? html`<iron-icon
-          class="jb-product-card__main-container__data-container__date__icon"
-          icon=${icon}
-        ></iron-icon>`
-      : html``;
   }
 
   _getTemplateType(view) {

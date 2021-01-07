@@ -98,25 +98,27 @@ $default-color: black;
                 align-items: center;
 
                 &__text {
-                    margin: 0;
-                    color: var(--jb-product-card-data-container-date-text-color, $default-color);
-                    font-size: var(--jb-product-card-data-container-date-text-font-size, $default-font-size);
-                    font-weight: var(--jb-product-card-data-container-date-text-font-weight, $default-font-weight);
-                    margin-top: var(--jb-product-card-data-container-date-icon-margin-top, 0);
-                    margin-bottom: var(--jb-product-card-data-container-date-icon-margin-bottom, 0);
-                    margin-left: var(--jb-product-card-data-container-date-icon-margin-left, 0);
-                    margin-right: var(--jb-product-card-data-container-date-icon-margin-right, 0);
-                }
-
-                &__icon {
-                    color: var(--jb-product-card-data-container-date-icon-color, $default-color);
-                    --iron-icon-height: var(--jb-product-card-data-container-date-icon-font-size, $default-font-size);
-                    --iron-icon-width: var(--jb-product-card-data-container-date-icon-font-size, $default-font-size);
-                    font-weight: var(--jb-product-card-data-container-date-icon-font-weight, $default-font-weight);
-                    margin-top: var(--jb-product-card-data-container-date-icon-margin-top, 0);
-                    margin-bottom: var(--jb-product-card-data-container-date-icon-margin-bottom, 0);
-                    margin-left: var(--jb-product-card-data-container-date-icon-margin-left, 0);
-                    margin-right: var(--jb-product-card-data-container-date-icon-margin-right, 8px);
+                    --jb-date-main-container-margin-top: var(--jb-product-card-data-container-date-margin-top, 0);
+                    --jb-date-main-container-margin-bottom: var(--jb-product-card-data-container-date-margin-bottom, 0);
+                    --jb-date-main-container-margin-left: var(--jb-product-card-data-container-date-margin-left, 0);
+                    --jb-date-main-container-margin-right: var(--jb-product-card-data-container-date-margin-right, 0);
+                    --jb-date-main-container-color: var(--jb-product-card-data-container-date-color, $default-color);
+                    --jb-date-main-container-font-size: var(--jb-product-card-data-container-date-font-size, $default-font-size);
+                    --jb-date-main-container-font-weight: var(--jb-product-card-data-container-date-font-weight, $default-font-weight);
+                    --jb-date-main-container-text-margin-top: var(--jb-product-card-data-container-date-text-margin-top, 0);
+                    --jb-date-main-container-text-margin-bottom: var(--jb-product-card-data-container-date-text-margin-bottom, 0);
+                    --jb-date-main-container-text-margin-left: var(--jb-product-card-data-container-date-text-margin-left, 0);
+                    --jb-date-main-container-text-margin-right: var(--jb-product-card-data-container-date-text-margin-right, 0);
+                    --jb-date-main-container-text-color: var(--jb-product-card-data-container-date-text-color, $default-color);
+                    --jb-date-main-container-text-font-size: var(--jb-product-card-data-container-date-text-font-size, $default-font-size);
+                    --jb-date-main-container-text-font-weight: var(--jb-product-card-data-container-date-text-font-weight, $default-font-weight);
+                    --jb-date-main-container-icon-margin-top: var(--jb-product-card-data-container-date-icon-margin-top, 0);
+                    --jb-date-main-container-icon-margin-bottom: var(--jb-product-card-data-container-date-icon-margin-bottom, 0);
+                    --jb-date-main-container-icon-margin-left: var(--jb-product-card-data-container-date-icon-margin-left, 0);
+                    --jb-date-main-container-icon-margin-right: var(--jb-product-card-data-container-date-icon-margin-right, 4px);
+                    --jb-date-main-container-icon-color: var(--jb-product-card-data-container-date-icon-color, $default-color);
+                    --jb-date-main-container-icon-font-size: var(--jb-product-card-data-container-date-icon-font-size, $default-font-size);
+                    --jb-date-main-container-icon-font-weight: var(--jb-product-card-data-container-date-icon-font-weight, $default-font-weight);
                 }
             }
 
