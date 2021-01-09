@@ -45,8 +45,7 @@ export class JbMenu extends LitElement {
       <div
         class="jb-menu-container__item${selected ? '-isSelected' : ''} ${item.featured ? `featured` : ''}"
         @click=${() => this._handleClick(index)}
-        @keydown=${() => this._handleClick(index)}
-      >
+        @keydown=${() => this._handleClick(index)}>
         ${this.constructor._itemIconTemplate(item.icon)}
         ${this.constructor._itemTextTemplate(item.text)}
       </div>
