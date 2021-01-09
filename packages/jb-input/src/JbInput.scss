@@ -14,6 +14,7 @@
         background-color: var(--jb-input-container-bg-color, none);
         border-radius: var(--jb-input-container-border-radius, none);
         font-size: var(--jb-input-container-font-size, 14px);
+        box-shadow: var(--jb-input-container-box-shadow, none);;
 
         ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
             color: var(--jb-input-color, black);;
