@@ -12,9 +12,12 @@ $borderSize: var(--jb-button-main-border-size, 1px);
         border: none;
         padding: var(--jb-button-main-padding-vertical, 8px) var(--jb-button-main-padding-horizontal, 16px);
         border-radius: var(--jb-button-main-border-radius, 0);
+        width: var(--jb-button-main-width, initial);
+        box-shadow: var(--jb-button-main-box-shadow, none);
 
         &__text {
             margin: 0;
+            flex: var(--jb-button-main-text-flex, none);
         }
     }
 } 
