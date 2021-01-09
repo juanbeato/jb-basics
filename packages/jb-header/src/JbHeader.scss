@@ -17,10 +17,24 @@
         &__icon {
             background-color: var(--jb-header-left-container-icon-bg-color, none);
             border-radius: var(--jb-header-left-container-icon-border-radius, 0);
-            padding-top: var(--jb-header-left-container-iconpadding-top, 0);
-            padding-bottom: var(--jb-header-left-container-iconpadding-bottom, 0);
-            padding-left: var(--jb-header-left-container-iconpadding-left, 0);
-            padding-right: var(--jb-header-left-container-iconpadding-right, 0);
+            padding-top: var(--jb-header-left-container-icon-padding-top, 0);
+            padding-bottom: var(--jb-header-left-container-icon-padding-bottom, 0);
+            padding-left: var(--jb-header-left-container-icon-padding-left, 0);
+            padding-right: var(--jb-header-left-container-icon-padding-right, 0);
+        }
+    }
+
+    &__right-container {
+        font-weight: var(--jb-header-right-container-font-weight, normal);
+        font-size: var(--jb-header-right-container-font-size, 24px);
+
+        &__icon {
+            background-color: var(--jb-header-right-container-icon-bg-color, none);
+            border-radius: var(--jb-header-right-container-icon-border-radius, 0);
+            padding-top: var(--jb-header-right-container-icon-padding-top, 0);
+            padding-bottom: var(--jb-header-right-container-icon-padding-bottom, 0);
+            padding-left: var(--jb-header-right-container-icon-padding-left, 0);
+            padding-right: var(--jb-header-right-container-icon-padding-right, 0);
         }
     }
 
