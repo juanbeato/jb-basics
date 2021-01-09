@@ -1,4 +1,5 @@
 import { html, css, LitElement, unsafeCSS } from 'lit-element';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/iron-icons/iron-icons.js';
 import '@polymer/iron-icons/social-icons.js';
@@ -42,7 +43,7 @@ export class JbMenu extends LitElement {
   _itemTemplate(item, index, selected) {
     return html`
       <div
-        class="jb-menu-container__item${selected ? '-isSelected' : ''}"
+        class="jb-menu-container__item${selected ? '-isSelected' : ''} ${item.featured ? `featured` : ''}"
         @click=${() => this._handleClick(index)}
         @keydown=${() => this._handleClick(index)}
       >

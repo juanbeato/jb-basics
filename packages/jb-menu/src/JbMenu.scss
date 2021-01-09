@@ -6,10 +6,46 @@
         background-color: var(--jb-menu-bg-color, #FFF);
         display: flex;
 
+        .featured {
+            position: relative;
+            display: var(--jb-menu-item-featured-display, block);
+            align-items: var(--jb-menu-item-featured-align-items, none);
+            flex-direction: var(--jb-menu-item-featured-flex-direction, none);
+            color: var(--jb-menu-item-featured-color, grey);
+            width: var(--jb-menu-item-featured-width, initial);
+            border-radius: var(--jb-menu-item-featured-border-radius, none);
+            background-color: var(--jb-menu-item-featured-bg-color, none);
+            padding: var(--jb-menu-item-featured-padding, 0);
+            margin-top: var(--jb-menu-item-featured-margin-top, 0);
+            margin-bottom: var(--jb-menu-item-featured-margin-bottom, 0);
+            margin-left: var(--jb-menu-item-featured-margin-left, 0);
+            margin-right: var(--jb-menu-item-featured-margin-right, 0);
+
+            p {
+                color: var(--jb-menu-item-featured-p-color, grey);;
+                margin: 0;
+                margin-top: var(--jb-menu-item-featured-p-margin-top, 4px);
+            }
+
+            iron-icon {
+                position: var(--jb-menu-item-featured-icon-position, relative);
+                left: var(--jb-menu-item-featured-icon-left, 0);
+                right: var(--jb-menu-item-featured-icon-right, 0);
+                background-color: var(--jb-menu-item-featured-icon-bg-color, none);
+                padding: var(--jb-menu-item-featured-icon-padding, 0);
+                margin: 0 auto;
+                --iron-icon-width: var(--jb-menu-item-featured-icon-width, 24px);
+                --iron-icon-height: var(--jb-menu-item-featured-icon-height, 24px);
+                border-radius: var(--jb-menu-item-featured-border-radius, 0);
+                box-shadow: var(--jb-menu-item-featured-box-shadow, none);
+            }
+        }
+
         &__item, &__item-isSelected {
             cursor: pointer;
             text-align: center;
             align-content: center;
+            position: relative;
             color: var(--jb-menu-item-color, grey);
             width: var(--jb-menu-item-width, initial);
             border-radius: var(--jb-menu-item-border-radius, none);
