@@ -1,4 +1,5 @@
 import { html, css, LitElement, unsafeCSS } from 'lit-element';
+import {ifDefined} from 'lit-html/directives/if-defined';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/iron-icons/iron-icons.js';
@@ -20,7 +21,7 @@ export class JbInput extends LitElement {
       leftIcon: { type: String },
       placeholder: { type: String },
       inputType: { type: String },
-      inputValue: { type: String },
+      value: { type: String },
       infoMessageIcon: { type: String },
       infoMessage: { type: String },
     };
@@ -30,10 +31,10 @@ export class JbInput extends LitElement {
     super();
     this.label = '';
     this.infoMessage = '';
-    this.inputValue = '';
+    this.value = '';
     this.rightIcon = '';
     this.leftIcon = '';
-    this.inputType = 'text';
+    this.inputType = "text";
     this.infoMessageIcon = 'error';
   }
 
@@ -47,12 +48,13 @@ export class JbInput extends LitElement {
     return html`
       <div class="jb-input-container">
         ${this.constructor._inputIconTemplate(this.leftIcon)}
-        ${unsafeHTML(`<input class="jb-input-container__input"
-              ${this.placeholder ? `placeholder="${this.placeholder}"` : ''}
+        
+        <input class="jb-input-container__input"
+              placeholder=${ifDefined(this.placeholder ? this.placeholder : undefined)}
               type=${this.inputType}
-              value=${
-                this.inputValue
-              }>`)} ${this.constructor._inputIconTemplate(this.rightIcon)}
+              value=${this.value}
+              @keyup=${this._handleChange}>
+        ${this.constructor._inputIconTemplate(this.rightIcon)}
       </div>
     `;
   }
@@ -77,5 +79,16 @@ export class JbInput extends LitElement {
           icon=${icon}
         ></iron-icon>`
       : html``;
+  }
+
+  _handleChange(evt) {
+    this.value = evt.target.value;
+    this.dispatchEvent(
+      new CustomEvent('jb-input-value-updated', {
+        bubbles: true,
+        composed: true,
+        detail: evt.target.value,
+      })
+    );
   }
 }
