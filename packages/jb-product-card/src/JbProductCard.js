@@ -22,7 +22,7 @@ export class JbProductCard extends LitElement {
 
   static get properties() {
     return {
-      cardId: { type: Number },
+      cardId: { type: String },
       title: { type: String },
       subTitle: { type: String },
       description: { type: String },
