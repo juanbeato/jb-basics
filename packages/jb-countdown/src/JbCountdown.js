@@ -41,19 +41,25 @@ export class JbCountdown extends LitElement {
     };
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    const thenDate = this.getThenDate();
-    this.formatTimeTillDate = thenDate.formatDate;
-  }
-
   shouldUpdate(changedProperties) {
+    if (changedProperties.has('date') || changedProperties.has('dateFormat')) {
+      if (this.date && this.dateFormat) {
+        this.initializeCountdown();
+      }
+    }
     if (changedProperties.has('formatTimeTillDate')) {
       return super.shouldUpdate(changedProperties);
     }
   }
 
-  firstUpdated(changedProperties) {
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  }
+
+  initializeCountdown() {
     const thenDate = this.getThenDate();
     this.formatTimeTillDate = thenDate.formatDate;
 
@@ -61,16 +67,6 @@ export class JbCountdown extends LitElement {
       this.interval = setInterval(() => {
         this.formatTimeTillDate = this.getThenDate().formatDate;
       }, 1000);
-    }
-
-    super.firstUpdated(changedProperties);
-  }
-
-
-  disconnectedCallback() {
-    super.disconnectedCallback();
-    if (this.interval) {
-      clearInterval(this.interval);
     }
   }
 
