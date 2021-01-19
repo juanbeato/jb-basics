@@ -1,4 +1,13 @@
 .jb-input {
+    &-label {
+        margin: 0;
+        margin-top: var(--jb-input-label-margin-top, 0);
+        margin-bottom: var(--jb-input-label-margin-bottom, 8px);
+        margin-left: var(--jb-input-label-margin-left, 0);
+        margin-right: var(--jb-input-label-margin-right, 0);
+        font-size: var(--jb-input-label-font-size, 14px);
+        font-weight: var(--jb-input-label-font-weight, 14px);
+    }
     &-container {
         display: flex;
         max-width: 370px;
@@ -49,6 +58,7 @@
 
         &__icon {
             cursor: pointer;
+            color: var(--jb-input-icon-color, black);
             opacity: var(--jb-input-icon-opacity, 1);
         }
     }

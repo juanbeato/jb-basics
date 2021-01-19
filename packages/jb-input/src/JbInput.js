@@ -3,6 +3,7 @@ import {ifDefined} from 'lit-html/directives/if-defined';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/iron-icons/iron-icons.js';
+import '@polymer/iron-icons/notification-icons.js';
 import style from './JbInput.scss';
 
 export class JbInput extends LitElement {
@@ -68,7 +69,7 @@ export class JbInput extends LitElement {
 
   get _labelTemplate() {
     return this.label
-      ? html`<p clas="jb-input-label">${this.label}</p>`
+      ? html`<p class="jb-input-label">${this.label}</p>`
       : html``;
   }
 
