@@ -17,6 +17,10 @@ export class JbButton extends LitElement {
     return {
       buttonText: { type: String },
       buttonIcon: { type: String },
+      loading: {
+        type: Boolean,
+        reflect: true,
+      },
     };
   }
 
@@ -24,15 +28,23 @@ export class JbButton extends LitElement {
     super();
     this.buttonText = '';
     this.buttonIcon = '';
+    this.loading = false;
   }
 
   render() {
     return html`
       <button class="jb-button-main" @click=${this.__increment}>
-        ${this.constructor._itemIconTemplate(this.buttonIcon)}
+        ${this._loaderTemplate}
         <p class="jb-button-main__text">${this.buttonText}</p>
+        ${this.constructor._itemIconTemplate(this.buttonIcon)}
       </button>
     `;
+  }
+
+  get _loaderTemplate() {
+    return this.loading
+      ? html`<span class="jb-button-main__loader"></span>`
+      : html``;
   }
 
   static _itemIconTemplate(icon) {
