@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <style>
+    body {
+      background: #fafafa;
+    }
+
+    jb-dropdown {
+      --jb-dropdown-container-margin-bottom: 16px;
+      --jb-dropdown-container-btn-border-size: 0;
+      --jb-dropdown-container-list-border-size: 0;
+      --jb-dropdown-container-btn-border-radius: 16px;
+      --jb-dropdown-container-btn-text-margin-left: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div id="demo">
+    <jb-dropdown
+    id="dropdownWithSelected"
+    dropdownLabel="Example title"
+    selected="0"
+    options='[
+      { "text": "first" },
+      { "text": "second" },
+      { "text": "third" }
+    ]'></jb-dropdown>
+    <jb-dropdown
+    id="dropdownWithoutSelected"
+    dropdownLabel="Example title"
+    options='[
+      { "text": "first" },
+      { "text": "second" },
+      { "text": "third" }
+    ]'></jb-dropdown>
+    <jb-dropdown
+    id="dropdownWithoutSelected"
+    label="Order"
+    dropdownLabel="Example title"
+    options='[
+      { "text": "first" },
+      { "text": "second" },
+      { "text": "third" }
+    ]'></jb-dropdown>
+  </div>
+</body>
+</html>
