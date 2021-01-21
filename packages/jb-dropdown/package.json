@@ -1,8 +1,8 @@
 {
-  "name": "jb-dropdown",
+  "name": "@juanbeato/jb-dropdown",
   "version": "1.0.0-alpha.0",
   "description": "Webcomponent jb-dropdown following open-wc recommendations",
-  "author": "jb-dropdown",
+  "author": "Juan Antonio Beato",
   "license": "MIT",
   "main": "jb-dropdown.js",
   "module": "jb-dropdown.js",
