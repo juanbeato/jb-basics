@@ -1,0 +1,125 @@
+:host {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: none;
+    .jb-modal-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+
+        &__bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+    
+        &__data {
+            position: absolute;
+            background-color: white;
+            padding-top: var(--jb-modal-container-data-padding-top, 16px);
+            padding-bottom: var(--jb-modal-container-data-padding-bottom, 16px);
+            padding-left: var(--jb-modal-container-data-padding-left, 16px);
+            padding-right: var(--jb-modal-container-data-padding-right, 16px);
+            margin: var(--jb-modal-container-data-margin-vertical, 0) var(--jb-modal-container-data-margin-horizontal, 16px);
+
+            &__title {
+                margin: 0;
+                font-size: var(--jb-modal-container-data-title-font-size, 18px);
+                font-weight: var(--jb-modal-container-data-title-font-weight, bold);
+                margin-top: var(--jb-modal-container-data-title-margin-top, 0);
+                margin-bottom: var(--jb-modal-container-data-title-margin-bottom, 8px);
+                margin-left: var(--jb-modal-container-data-title-margin-left, 0);
+                margin-right: var(--jb-modal-container-data-title-margin-right, 0);
+            }
+
+            &__buttons {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                &__item {
+                    --jb-button-main-width: var(--jb-modal-container-data-buttons-item-width, 100%);
+                    --jb-button-main-text-flex: var(--jb-modal-container-data-buttons-item-text-flex, 1);
+                    width: calc(var(--jb-modal-container-data-buttons-item-width, 50%) - var(--jb-modal-container-data-buttons-item-space-between, 8px));
+                    --jb-button-primary-bg-color: var(--jb-modal-container-data-buttons-item-primary-bg-color, blue);
+                    --jb-button-primary-color: var(--jb-modal-container-data-buttons-item-primary-color, white);
+                    --jb-button-main-border-size: var(--jb-modal-container-data-buttons-item-main-border-size, 1px);
+                    --jb-button-main-padding-vertical: var(--jb-modal-container-data-buttons-item-main-padding-vertical, 8px);
+                    --jb-button-main-padding-horizontal: var(--jb-modal-container-data-buttons-item-main-padding-horizontal, 16px);
+                    --jb-button-main-border-radius: var(--jb-modal-container-data-buttons-item-main-border-radius, 0);
+                    --jb-button-main-box-shadow: var(--jb-modal-container-data-buttons-item-main-box-shadow, none);
+                }
+            }
+        }
+    }
+}
+
+
+:host([modal-align="top"]) {
+    .jb-modal-container {
+        align-items: flex-start;
+    }
+}
+
+:host([modal-align="bottom"]) {
+    .jb-modal-container {
+        align-items: flex-end;
+
+        &__data {
+            margin: 0;
+            bottom: 0;
+            animation-name: data-container-exit-animation;
+            animation-duration: 0.25s;
+        }
+    }
+}
+
+:host([modal-align="center"]) {
+    .jb-modal-container {
+        display: flex;
+        align-items: center;
+    }
+}
+
+:host([opened]) {
+    display: block;
+    .jb-modal-container {
+        &__bg {
+            background-color: rgba(0, 0, 0, 0.5);
+            animation-name: bg-animation;
+            animation-duration: 0.25s;
+        }
+    }
+}
+
+:host([opened][modal-align="bottom"]) {
+    display: block;
+    .jb-modal-container {
+        &__data {
+            bottom: 0;
+            animation-name: data-container-animation;
+            animation-duration: 0.25s;
+        }
+    }
+}
+
+@keyframes bg-animation {
+    from {background-color: rgba(0, 0, 0, 0);}
+    to {background-color: rgba(0, 0, 0, 0.5);}
+}
+
+@keyframes data-container-animation {
+    from {bottom: -100%;}
+    to {bottom: 0;}
+}
+
+@keyframes data-container-exit-animation {
+    from {bottom: 0;}
+    to {bottom: -100%;}
+}

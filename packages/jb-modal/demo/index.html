@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <style>
+    body {
+      background: #fafafa;
+    }
+  </style>
+</head>
+<body>
+  <div id="demo">
+    <jb-modal 
+    id="demoModal"
+    config='{
+      "title": "Example title",
+      "description": "Minions ipsum gelatooo ti aamoo! Bananaaaa belloo! Gelatooo. Uuuhhh gelatooo butt ti aamoo! Uuuhhh aaaaaah belloo! Jiji tank yuuu! Wiiiii gelatooo underweaaar uuuhhh hahaha. Bappleees uuuhhh gelatooo tank yuuu!",
+      "acceptBtnText": "Confirmar",
+      "cancelBtnText": "Cancelar"
+    }'
+    modal-align="bottom"></jb-modal>
+    <jb-button
+    id="btnModal"
+    primary
+    buttontext="Open Modal"
+    onclick="openModal()"></jb-button>
+  </div>
+</body>
+<script>
+  const btnModal = document.querySelector('#buttomModal');
+  const demoModal = document.querySelector('#demoModal');
+  const openModal = () => { demoModal.open() };
+</script>
+</html>
