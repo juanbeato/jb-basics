@@ -1,8 +1,8 @@
 {
-  "name": "jb-modal",
+  "name": "@juanbeato/jb-modal",
   "version": "0.0.0",
   "description": "Webcomponent jb-modal following open-wc recommendations",
-  "author": "jb-modal",
+  "author": "Juan Antonio Beato",
   "license": "MIT",
   "main": "jb-modal.js",
   "module": "jb-modal.js",
