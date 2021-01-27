@@ -5,6 +5,7 @@
     top: 0;
     left: 0;
     display: none;
+    z-index: 999;
     .jb-modal-container {
         position: relative;
         width: 100%;
@@ -26,16 +27,29 @@
             padding-bottom: var(--jb-modal-container-data-padding-bottom, 16px);
             padding-left: var(--jb-modal-container-data-padding-left, 16px);
             padding-right: var(--jb-modal-container-data-padding-right, 16px);
+            border-radius: var(--jb-modal-container-data-border-radius, 0);
             margin: var(--jb-modal-container-data-margin-vertical, 0) var(--jb-modal-container-data-margin-horizontal, 16px);
 
             &__title {
                 margin: 0;
                 font-size: var(--jb-modal-container-data-title-font-size, 18px);
                 font-weight: var(--jb-modal-container-data-title-font-weight, bold);
+                text-align: var(--jb-modal-container-data-title-text-align, none);
                 margin-top: var(--jb-modal-container-data-title-margin-top, 0);
                 margin-bottom: var(--jb-modal-container-data-title-margin-bottom, 8px);
                 margin-left: var(--jb-modal-container-data-title-margin-left, 0);
                 margin-right: var(--jb-modal-container-data-title-margin-right, 0);
+            }
+
+            &__description {
+                margin: 0;
+                font-size: var(--jb-modal-container-data-description-font-size, 15px);
+                font-weight: var(--jb-modal-container-data-description-font-weight, normal);
+                text-align: var(--jb-modal-container-data-description-text-align, none);
+                margin-top: var(--jb-modal-container-data-description-margin-top, 0);
+                margin-bottom: var(--jb-modal-container-data-description-margin-bottom, 8px);
+                margin-left: var(--jb-modal-container-data-description-margin-left, 0);
+                margin-right: var(--jb-modal-container-data-description-margin-right, 0);
             }
 
             &__buttons {
