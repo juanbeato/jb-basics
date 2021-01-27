@@ -1,4 +1,8 @@
 .jb-layout {
+    &__main {
+        height: 100%;
+        width: 100%;
+    }
     &__footer {
         width: 100%;
         position: fixed;
