@@ -19,9 +19,8 @@ export class JbDropdown extends LitElement {
       label: { type: String },
       dropdownLabel: { type: String },
       options: { type: Array },
-      selected: { type: Number },
-      opened: { type: Boolean },
-      clickEvent: { type: String },
+      value: { type: Number },
+      opened: { type: Boolean }
     };
   }
 
@@ -31,7 +30,6 @@ export class JbDropdown extends LitElement {
     this.label = '';
     this.closeIcon = 'expand-less';
     this.openIcon = 'expand-more';
-    this.clickEvent = 'jb-dropdown-item-selected';
   }
 
   render() {
@@ -58,7 +56,7 @@ export class JbDropdown extends LitElement {
               html`${this._listItemTemplate(
                 item,
                 index,
-                index === this.selected
+                index === this.value
               )}`
           )}
         </div>
@@ -73,9 +71,9 @@ export class JbDropdown extends LitElement {
   _getDropdownLabel() {
     return this.options &&
       this.options.length &&
-      (this.selected || this.selected === 0) &&
-      this.options[this.selected]
-      ? this.options[this.selected].text
+      (this.value || this.value === 0) &&
+      this.options[this.value]
+      ? this.options[this.value].text
       : this.dropdownLabel;
   }
 
@@ -83,8 +81,8 @@ export class JbDropdown extends LitElement {
     return html`<div
       class="jb-dropdown__container__list__item 
       ${selected ? 'selected' : ''}"
-      @click=${() => this._updateSelected(item, index)}
-      @keydown=${() => this._updateSelected(item, index)}
+      @click=${() => this._updateValue(item, index)}
+      @keydown=${() => this._updateValue(item, index)}
       ?selected=${selected}
     >
       ${item.text}
@@ -95,22 +93,26 @@ export class JbDropdown extends LitElement {
     this.opened = !this.opened;
   }
 
-  _updateSelected(item, index) {
-    this.selected = index;
+  _updateValue(item, index) {
+    this.value = index;
     this._toggleList();
     this._handleClick(item, index);
   }
 
   _handleClick(item, index) {
-    this.selected = index;
+    this.value = index;
     this.dispatchEvent(
-      new CustomEvent(this.clickEvent, {
+      new CustomEvent('change', {
         bubbles: true,
         composed: true,
-        detail: {
-          item,
-          index,
-        },
+        detail: index
+      })
+    );
+    this.dispatchEvent(
+      new CustomEvent('jb-dropdown-item-selected', {
+        bubbles: true,
+        composed: true,
+        detail: item
       })
     );
   }
