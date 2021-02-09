@@ -14,6 +14,7 @@ export class JbHeader extends LitElement {
 
   static get properties() {
     return {
+      centerText: { type: String },
       leftText: { type: String },
       leftIcon: { type: String },
       rightText: { type: String },
@@ -23,6 +24,7 @@ export class JbHeader extends LitElement {
 
   constructor() {
     super();
+    this.centerText = '';
     this.leftText = '';
     this.leftIcon = '';
     this.rightText = '';
@@ -32,7 +34,7 @@ export class JbHeader extends LitElement {
   render() {
     return html`
       <div class="jb-header">
-        ${this._containerTemplate('left')} ${this._containerTemplate('right')}
+        ${this._containerTemplate('left')} ${this._containerTemplate('center')} ${this._containerTemplate('right')}
       </div>
     `;
   }
@@ -41,7 +43,7 @@ export class JbHeader extends LitElement {
     return html`
       <div class="jb-header__${type}-container">
         <slot name=${type}>
-          ${this.constructor._itemTextTemplate(this[`${type}Text`], type)}
+          ${this._itemTextTemplate(this[`${type}Text`], type)}
           ${this._itemIconTemplate(this[`${type}Icon`], type)}
         </slot>
       </div>
@@ -59,9 +61,11 @@ export class JbHeader extends LitElement {
       : html``;
   }
 
-  static _itemTextTemplate(text, type) {
+  _itemTextTemplate(text, type) {
     return text
-      ? html`<p class="jb-header__${type}-container__text">${text}</p>`
+      ? html`<p class="jb-header__${type}-container__text"
+          @click=${() => this._handleClick(`jb-header-text-${type}-clicked`)}
+          @keydown=${() => this._handleClick(`jb-header-text-${type}-clicked`)}>${text}</p>`
       : html``;
   }
 

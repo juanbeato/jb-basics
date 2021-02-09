@@ -1,3 +1,6 @@
+$icon-width: var(--jb-header-icon-width, 24px);
+$icon-height: var(--jb-header-icon-height, 24px);
+
 .jb-header {
     width: 100%;
     display: flex;
@@ -8,11 +11,25 @@
     padding-right: var(--jb-header-p-padding-right, 0);
     box-sizing: border-box;
     background-color: var(--jb-header-bg-color, none);
+    color: var(--jb-header-color, none);
+
+    &__center-container {
+        font-weight: var(--jb-header-center-container-font-weight, normal);
+        font-size: var(--jb-header-center-container-font-size, 24px);
+        flex: 1;
+        text-align: center;
+        color: var(--jb-header-center-container-color, none);
+
+
+        p {
+            margin: 0;
+        }
+    }
 
     &__left-container {
         font-weight: var(--jb-header-left-container-font-weight, normal);
         font-size: var(--jb-header-left-container-font-size, 24px);
-        flex: 1;
+        color: var(--jb-header-left-container-color, none);
 
         &__icon {
             background-color: var(--jb-header-left-container-icon-bg-color, none);
@@ -21,12 +38,15 @@
             padding-bottom: var(--jb-header-left-container-icon-padding-bottom, 0);
             padding-left: var(--jb-header-left-container-icon-padding-left, 0);
             padding-right: var(--jb-header-left-container-icon-padding-right, 0);
+            --iron-icon-width: #{$icon-width};
+            --iron-icon-height: #{$icon-height};
         }
     }
 
     &__right-container {
         font-weight: var(--jb-header-right-container-font-weight, normal);
         font-size: var(--jb-header-right-container-font-size, 24px);
+        color: var(--jb-header-right-container-color, none);
 
         &__icon {
             background-color: var(--jb-header-right-container-icon-bg-color, none);
@@ -35,6 +55,12 @@
             padding-bottom: var(--jb-header-right-container-icon-padding-bottom, 0);
             padding-left: var(--jb-header-right-container-icon-padding-left, 0);
             padding-right: var(--jb-header-right-container-icon-padding-right, 0);
+            --iron-icon-width: #{$icon-width};
+            --iron-icon-height: #{$icon-height};
+        }
+
+        &__text {
+            color: var(--jb-header-right-container-text-color, none);
         }
     }
 
@@ -51,4 +77,13 @@
 ::slotted(p) {
     margin-top: var(--jb-header-p-margin-top, 0);
     margin-bottom: var(--jb-header-p-margin-bottom, 0);
+}
+
+:host(:not([righticon])[lefticon][centertext]) {
+    .jb-header {
+        &__center-container {
+            flex: initial;
+            width: calc(100% - #{$icon-width} - #{$icon-width});
+        }
+    }
 }
