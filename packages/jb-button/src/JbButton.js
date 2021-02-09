@@ -17,6 +17,7 @@ export class JbButton extends LitElement {
     return {
       buttonText: { type: String },
       buttonIcon: { type: String },
+      disabled: { type: Boolean },
       loading: {
         type: Boolean,
         reflect: true,
@@ -29,6 +30,7 @@ export class JbButton extends LitElement {
     this.buttonText = '';
     this.buttonIcon = '';
     this.loading = false;
+    this.disabled = false;
   }
 
   render() {

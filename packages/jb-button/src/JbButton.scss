@@ -2,6 +2,8 @@ $primaryBgColor: var(--jb-button-primary-bg-color, blue);
 $primaryColor: var(--jb-button-primary-color, white);
 $secondaryBgColor: var(--jb-button-secondary-bg-color, $primaryColor);
 $secondaryColor: var(--jb-button-secondary-color, $primaryBgColor);
+$disabledBgColor: var(--jb-button-disabled-bg-color, grey);
+$disabledColor: var(--jb-button-disabled-color, white);
 $borderSize: var(--jb-button-main-border-size, 1px);
 $loader-color: $primaryColor;
 $default-font-size: 15px;
@@ -85,6 +87,18 @@ $default-font-size: 15px;
             background-color: #{$secondaryBgColor};
             color:#{$secondaryColor};
             border: #{$borderSize}  solid #{$secondaryColor};
+        }
+    }
+}
+
+:host([disabled]) {
+    .jb-button{
+        &-main {
+            box-shadow: var(--jb-button-disabled-main-box-shadow, none);
+            opacity: var(--jb-button-disabled-main-opacity, 0.2);
+            filter: var(--jb-button-disabled-main-filter, grayscale(100%));
+            -webkit-filter: var(--jb-button-disabled-main-filter, grayscale(100%));
+            -moz-filter: var(--jb-button-disabled-main-filter, grayscale(100%));
         }
     }
 }
