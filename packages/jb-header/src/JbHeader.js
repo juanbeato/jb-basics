@@ -2,7 +2,6 @@ import { html, css, LitElement, unsafeCSS } from 'lit-element';
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/iron-icons/iron-icons.js';
 import style from './JbHeader.scss';
-
 export class JbHeader extends LitElement {
   static get styles() {
     return [
