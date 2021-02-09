@@ -25,6 +25,7 @@ export class JbInput extends LitElement {
       value: { type: String },
       infoMessageIcon: { type: String },
       infoMessage: { type: String },
+      disabled: { type: Boolean }
     };
   }
 
@@ -54,6 +55,7 @@ export class JbInput extends LitElement {
               placeholder=${ifDefined(this.placeholder ? this.placeholder : undefined)}
               type=${this.inputType}
               value=${this.value}
+              ?disabled=${this.disabled}
               @keyup=${this._handleChange}>
         ${this.constructor._inputIconTemplate(this.rightIcon)}
       </div>
@@ -85,7 +87,7 @@ export class JbInput extends LitElement {
   _handleChange(evt) {
     this.value = evt.target.value;
     this.dispatchEvent(
-      new CustomEvent('jb-input-value-updated', {
+      new CustomEvent('change', {
         bubbles: true,
         composed: true,
         detail: evt.target.value,

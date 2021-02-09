@@ -4,6 +4,7 @@ import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/iron-icons/iron-icons.js';
 import '@polymer/iron-icons/social-icons.js';
 import '@polymer/iron-icons/notification-icons.js';
+import '@polymer/iron-icons/communication-icons.js';
 import style from './JbMenu.scss';
 
 export class JbMenu extends LitElement {

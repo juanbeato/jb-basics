@@ -4,6 +4,7 @@
         padding-bottom: var(--jb-menu-padding-bottom, 8px);
         box-shadow: var(--jb-menu-box-shadow, none);
         background-color: var(--jb-menu-bg-color, #FFF);
+        -webkit-tap-highlight-color: transparent;
         display: flex;
 
         .featured {
