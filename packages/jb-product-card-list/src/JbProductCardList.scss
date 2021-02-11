@@ -74,6 +74,8 @@ $default-card-countdown-font-weight: normal;
             --jb-product-card-main-container-bg-color: var(--jb-product-card-list-container-item-bg-color, none);
             --jb-product-card-main-container-align-items: var(--jb-product-card-list-container-item-align-items, initial);
             --jb-product-card-isloading-main-container-box-shadow: var(--jb-product-card-list-isloading-main-container-box-shadow, none);
+            --jb-product-card-isloading-main-container-border-top-left-radius: var(--jb-product-card-list-isloading-main-container-border-top-left-radius, none);
+            --jb-product-card-isloading-main-container-border-bottom-left-radius: var(--jb-product-card-list-isloading-main-container-border-bottom-left-radius, none);
             --jb-product-card-data-container-countdown-container-width: var(--jb-product-card-list-item-data-container-countdown-container-width, 100%);
             --jb-product-card-data-container-countdown-container-color: var(--jb-product-card-list-item-data-container-countdown-container-color, $default-card-countdown-color);
             --jb-product-card-data-container-countdown-container-font-size: var(--jb-product-card-list-item-data-container-countdown-container-font-size, $default-card-countdown-font-size);
