@@ -15,6 +15,7 @@ export class JbCountdown extends LitElement {
 
   static get properties() {
     return {
+      id: { type: String },
       now: { type: Number, hasChanged: () => false },
       then: { type: Number, hasChanged: () => false},
       date: { type: String },
@@ -105,6 +106,16 @@ export class JbCountdown extends LitElement {
       });
     } else {
       formatDate = Object.keys(formatTimeTillDate).map(item => `${formatTimeTillDate[item]}${item.slice(0, 1)}`).join(' ');
+    }
+
+    console.log(duration.valueOf());
+    if (duration.valueOf() <= 1000) {
+      clearInterval(this.interval);
+      this.dispatchEvent(new CustomEvent('jb-countdown-finished', {
+        bubbles: true,
+        composed: true,
+        detail: this.id,
+      }));
     }
 
     return {
