@@ -131,7 +131,7 @@ export class JbProductCard extends LitElement {
       const skeletonTemplate =
         type === 'description'
           ? this._skeletonTemplate({ count: 3 })
-          : this._skeletonTemplate({ width: '50%' });
+          : this._skeletonTemplate({ width: '70%' });
       template = html` <div
         class="jb-product-card__main-container__data-container__${type}"
       >
@@ -146,19 +146,17 @@ export class JbProductCard extends LitElement {
   }
 
   _priceTemplate(price) {
-    let template = this.buttonText ? html`<jb-button class="jb-product-card__main-container__data-container__footer__right__button"
-                              secondary
-                              buttontext=${this.buttonText}></jb-button>` : html``
+    let template;
     if (price) {
       template = unsafeHTML(
         `<p class="jb-product-card__main-container__data-container__footer__right__text">${price}</p>`
       );
     }
-    return html` <div
+    return price ? html` <div
       class="jb-product-card__main-container__data-container__footer__right"
     >
       ${this.isLoading ? this._skeletonTemplate({ width: '50%' }) : template}
-    </div>`;
+    </div>` : html``;
   }
 
   _timeTemplate(time) {
@@ -201,7 +199,7 @@ export class JbProductCard extends LitElement {
       ? html`<div
           class="jb-product-card__main-container__data-container__date">
           ${this.isLoading
-            ? this._skeletonTemplate({ width: '50%' })
+            ? this._skeletonTemplate({ width: '90%' })
             : html`${unsafeHTML(`
               <jb-date class="jb-product-card__main-container__data-container__date__text"
               date="${date.value}"
