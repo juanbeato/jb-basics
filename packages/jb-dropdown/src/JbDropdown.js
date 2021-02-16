@@ -30,6 +30,7 @@ export class JbDropdown extends LitElement {
     this.label = '';
     this.closeIcon = 'expand-less';
     this.openIcon = 'expand-more';
+    this.opened = false;
   }
 
   render() {
@@ -50,15 +51,19 @@ export class JbDropdown extends LitElement {
           ></iron-icon>
         </div>
         <div class="jb-dropdown__container__list" ?hidden=${!this.opened}>
-          ${this.options &&
-          this.options.map(
-            (item, index) =>
-              html`${this._listItemTemplate(
-                item,
-                index,
-                index === this.value
-              )}`
-          )}
+          <div class="jb-dropdown__container__list__bg"
+          @click=${this._toggleList}></div>
+          <div class="jb-dropdown__container__list__items-container">
+            ${this.options &&
+            this.options.map(
+              (item, index) =>
+                html`${this._listItemTemplate(
+                  item,
+                  index,
+                  index === this.value
+                )}`
+            )}
+          </div>
         </div>
       </div>
     `;
@@ -79,7 +84,7 @@ export class JbDropdown extends LitElement {
 
   _listItemTemplate(item, index, selected) {
     return html`<div
-      class="jb-dropdown__container__list__item 
+      class="jb-dropdown__container__list__items-container__item 
       ${selected ? 'selected' : ''}"
       @click=${() => this._updateValue(item, index)}
       @keydown=${() => this._updateValue(item, index)}
@@ -95,7 +100,9 @@ export class JbDropdown extends LitElement {
 
   _updateValue(item, index) {
     this.value = index;
-    this._toggleList();
+    setTimeout(() => {
+      this._toggleList();
+    }, '150');
     this._handleClick(item, index);
   }
 
