@@ -54,35 +54,64 @@ $default-font-weight: normal;
             }
         }
 
+        &__list[hidden]{
+            display:none;
+        }
+
         &__list {
-            position: absolute;
-            width: var(--jb-dropdown-container-list-width, 100%);
-            margin-top: var(--jb-dropdown-container-list-margin-top, 0);
-            margin-bottom: var(--jb-dropdown-container-list-margin-bottom, 0);
-            margin-left: var(--jb-dropdown-container-list-margin-left, 0);
-            margin-right: var(--jb-dropdown-container-list-margin-right, 0);
-            border: var(--jb-dropdown-container-list-border-size, 1px) solid var(--jb-dropdown-container-list-border-color, $default-color);
-            box-sizing: border-box;
-            border-radius: var(--jb-dropdown-container-list-border-radius, none);
+            position: fixed;
+            width: var(--jb-dropdown-container-list-width, 100vw);
             z-index: 99;
-            overflow: hidden;
-
-            &__item {
-                background-color: var(--jb-dropdown-container-list-item-bg-color, $default-bg-color);
-                color: var(--jb-dropdown-container-list-item-color, $default-color);
-                padding: var(--jb-dropdown-container-list-item-padding-vertical, $default-items-padding) var(--jb-dropdown-container-list-item-padding-horizontal, $default-items-padding);
-                margin-top: var(--jb-dropdown-container-list-item-margin-top, 0);
-                margin-bottom: var(--jb-dropdown-container-list-item-margin-bottom, 0);
-                margin-left: var(--jb-dropdown-container-list-item-margin-left, 0);
-                margin-right: var(--jb-dropdown-container-list-item-margin-right, 0);
-                font-size: var(--jb-dropdown-container-list-item-font-size, $default-font-size);
-                font-weight: var(--jb-dropdown-container-list-item-font-weight, $default-font-weight);
+            height: 100vh;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            &__bg {
+                height: 100%;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                position: fixed;
+                top: 0;
+                left: 0;
             }
-
-            &__item.selected {
-                border-radius: var(--jb-dropdown-container-list-item-selected-border-radius, none);
-                background-color: var(--jb-dropdown-container-list-item-selected-bg-color, $default-selected-bg-color);
-                color: var(--jb-dropdown-container-list-item-selected-color, $default-selected-color);
+            &__items-container {
+                width: var(--jb-dropdown-container-list-items-container-width, 100%);
+                margin-top: var(--jb-dropdown-container-list-items-container-margin-top, 0);
+                margin-bottom: var(--jb-dropdown-container-list-items-container-margin-bottom, 0);
+                margin-left: var(--jb-dropdown-container-list-items-container-margin-left, 0);
+                margin-right: var(--jb-dropdown-container-list-items-container-margin-right, 0);
+                border: var(--jb-dropdown-container-list-items-container-border-size, 1px) solid var(--jb-dropdown-container-list-items-container-border-color, $default-color);
+                box-sizing: border-box;
+                border-radius: var(--jb-dropdown-container-list-items-container-border-radius, none);
+                overflow: hidden;
+                background-color: white;
+                margin: 0 auto;
+                width: 90%;
+                z-index: 1;
+                padding-top: var(--jb-dropdown-container-list-items-container-padding-top, 0);
+                padding-bottom: var(--jb-dropdown-container-list-items-container-padding-bottom, 0);
+                padding-left: var(--jb-dropdown-container-list-items-container-padding-left, 0);
+                padding-right: var(--jb-dropdown-container-list-items-container-padding-right, 0);
+    
+                &__item {
+                    background-color: var(--jb-dropdown-container-list-items-container-item-bg-color, $default-bg-color);
+                    color: var(--jb-dropdown-container-list-items-container-item-color, $default-color);
+                    padding: var(--jb-dropdown-container-list-items-container-item-padding-vertical, $default-items-padding) var(--jb-dropdown-container-list-items-container-item-padding-horizontal, $default-items-padding);
+                    margin-top: var(--jb-dropdown-container-list-items-container-item-margin-top, 0);
+                    margin-bottom: var(--jb-dropdown-container-list-items-container-item-margin-bottom, 0);
+                    margin-left: var(--jb-dropdown-container-list-items-container-item-margin-left, 0);
+                    margin-right: var(--jb-dropdown-container-list-items-container-item-margin-right, 0);
+                    font-size: var(--jb-dropdown-container-list-items-container-item-font-size, $default-font-size);
+                    font-weight: var(--jb-dropdown-container-list-items-container-item-font-weight, $default-font-weight);
+                }
+    
+                &__item.selected {
+                    border-radius: var(--jb-dropdown-container-list-items-container-item-selected-border-radius, none);
+                    background-color: var(--jb-dropdown-container-list-items-container-item-selected-bg-color, $default-selected-bg-color);
+                    color: var(--jb-dropdown-container-list-items-container-item-selected-color, $default-selected-color);
+                }
             }
         }
     }
