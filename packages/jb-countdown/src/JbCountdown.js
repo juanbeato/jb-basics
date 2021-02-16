@@ -108,7 +108,6 @@ export class JbCountdown extends LitElement {
       formatDate = Object.keys(formatTimeTillDate).map(item => `${formatTimeTillDate[item]}${item.slice(0, 1)}`).join(' ');
     }
 
-    console.log(duration.valueOf());
     if (duration.valueOf() <= 1000) {
       clearInterval(this.interval);
       this.dispatchEvent(new CustomEvent('jb-countdown-finished', {
