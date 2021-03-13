@@ -1,9 +1,16 @@
+$bg-color: var(--jb-layout-bg-color, white);
+
 .jb-layout {
+    &__header {
+        // background-color: var(--jb-layout-header-bg-color, $bg-color);
+    }
     &__main {
         height: 100%;
         width: 100%;
+        // background-color: var(--jb-layout-main-bg-color, $bg-color);
     }
     &__footer {
+        // background-color: var(--jb-layout-footer-bg-color, $bg-color);;
         width: 100%;
         position: fixed;
         bottom: 0;
