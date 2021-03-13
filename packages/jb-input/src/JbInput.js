@@ -4,6 +4,7 @@ import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/iron-icons/iron-icons.js';
 import '@polymer/iron-icons/notification-icons.js';
+import '@polymer/iron-icons/image-icons.js';
 import style from './JbInput.scss';
 
 export class JbInput extends LitElement {
@@ -49,7 +50,7 @@ export class JbInput extends LitElement {
   get _inputTemplate() {
     return html`
       <div class="jb-input-container">
-        ${this.constructor._inputIconTemplate(this.leftIcon)}
+        ${this.constructor._inputIconTemplate(this.leftIcon, 'left')}
         
         <input class="jb-input-container__input"
               placeholder=${ifDefined(this.placeholder ? this.placeholder : undefined)}
@@ -57,7 +58,7 @@ export class JbInput extends LitElement {
               value=${this.value}
               ?disabled=${this.disabled}
               @keyup=${this._handleChange}>
-        ${this.constructor._inputIconTemplate(this.rightIcon)}
+        ${this.constructor._inputIconTemplate(this.rightIcon, 'right')}
       </div>
     `;
   }
@@ -75,10 +76,10 @@ export class JbInput extends LitElement {
       : html``;
   }
 
-  static _inputIconTemplate(icon) {
+  static _inputIconTemplate(icon, type) {
     return icon
       ? html`<iron-icon
-          class="jb-input-container__icon"
+          class="jb-input-container__icon jb-input-container__icon-${type}"
           icon=${icon}
         ></iron-icon>`
       : html``;

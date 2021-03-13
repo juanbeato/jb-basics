@@ -60,6 +60,17 @@
             cursor: pointer;
             color: var(--jb-input-icon-color, black);
             opacity: var(--jb-input-icon-opacity, 1);
+            --iron-icon-width: var(--jb-input-icon-width, 24px);
+            --iron-icon-height: var(--jb-input-icon-height, 24px);
+
+            &-left {
+                color: var(--jb-input-icon-left-color, black);
+            }
+
+            &-right {
+                color: var(--jb-input-icon-right-color, black);
+            }
         }
+        
     }
 }
