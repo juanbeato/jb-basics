@@ -1,11 +1,24 @@
+$default-font-size: 15px;
+$default-font-weight: normal;
+
 .jb-menu{
     &-container {
         padding-top: var(--jb-menu-padding-top, 8px);
         padding-bottom: var(--jb-menu-padding-bottom, 8px);
+        padding-left: var(--jb-menu-padding-left, 0);
+        padding-right: var(--jb-menu-padding-right, 0);
+        margin-top: var(--jb-menu-margin-top, 0);
+        margin-bottom: var(--jb-menu-margin-bottom, 0);
+        margin-left: var(--jb-menu-margin-left, 0);
+        margin-right: var(--jb-menu-margin-right, 0);
+        border-radius: var(--jb-menu-border-radius, none);
         box-shadow: var(--jb-menu-box-shadow, none);
         background-color: var(--jb-menu-bg-color, #FFF);
         -webkit-tap-highlight-color: transparent;
         display: flex;
+        overflow-y: var(--jb-menu-overflow-y, initial); 
+        overflow-x: var(--jb-menu-overflow-x, initial);
+        font-size: var(--jb-menu-font-size, $default-font-size);
 
         .featured {
             position: relative;
@@ -56,10 +69,15 @@
             margin-bottom: var(--jb-menu-item-margin-bottom, 0);
             margin-left: var(--jb-menu-item-margin-left, 0);
             margin-right: var(--jb-menu-item-margin-right, 0);
+            min-width: var(--jb-menu-item-min-width, initial);
+
             p {
                 color: var(--jb-menu-item-p-color, grey);;
                 margin: 0;
                 margin-top: var(--jb-menu-item-p-margin-top, 4px);
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
             }
 
             iron-icon {
@@ -74,7 +92,18 @@
                 background-color: var(--jb-menu-item-selected-bg-color, none);
 
                 p {
-                    color: var(--jb-menu-item-selected-p-color, black);;
+                    color: var(--jb-menu-item-selected-p-color, black);
+                    font-size: var(--jb-menu-item-selected-p-font-size, $default-font-size);
+                    font-weight: var(--jb-menu-item-selected-p-font-weight, $default-font-weight);
+                }
+
+                p:after {
+                    height: var(--jb-menu-item-selected-after-height, 0);;
+                    display: var(--jb-menu-item-selected-after-display, block);
+                    width: var(--jb-menu-item-selected-after-width, 0);
+                    background-color: var(--jb-menu-item-selected-after-bg-color, none);
+                    margin: 0 auto;
+                    content: '';
                 }
             }
         }
@@ -98,6 +127,7 @@
     
             &__item, &__item-isSelected {
                 margin-left: var(--jb-menu-left-item-margin-left, 8px);
+                margin-right: var(--jb-menu-left-item-margin-right, 0);
                 p {
                     margin: 0;
                     margin-top: 4px;
