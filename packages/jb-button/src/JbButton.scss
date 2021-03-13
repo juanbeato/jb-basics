@@ -12,17 +12,22 @@ $default-font-size: 15px;
     &-main {
         display: flex;
         align-items: center;
-        flex-direction: row;
+        flex-direction: var(--jb-button-main-flex-direction, row);
         border: none;
         outline: none;
         padding: var(--jb-button-main-padding-vertical, 8px) var(--jb-button-main-padding-horizontal, 16px);
         border-radius: var(--jb-button-main-border-radius, 0);
         width: var(--jb-button-main-width, initial);
         box-shadow: var(--jb-button-main-box-shadow, none);
+        justify-content: center;
 
         &__text {
             margin: 0;
             flex: var(--jb-button-main-text-flex, none);
+            margin-top: var(--jb-button-main-text-margin-top, 0);
+            margin-bottom: var(--jb-button-main-text-margin-bottom, 0);
+            margin-left: var(--jb-button-main-text-margin-left, 0);
+            margin-right: var(--jb-button-main-text-margin-right, 0);
         }
 
         &__loader {
