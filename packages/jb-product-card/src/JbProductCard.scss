@@ -18,10 +18,12 @@ $default-color: black;
         background-color: var(--jb-product-card-main-container-bg-color, none);
         align-items: var(--jb-product-card-main-container-align-items, initial);
         height: var(--jb-product-card-main-container-height, initial);
+        overflow: hidden;
 
         &__image__container {
             width: var(--jb-product-card-image-container-width, 100%);
             height: var(--jb-product-card-image-container-height, initial);
+            font-size: 0;
 
             &__img {
                 width: var(--jb-product-card-image-width, 100%);
@@ -273,10 +275,13 @@ $default-color: black;
             height: var(--jb-product-card-vertical-main-container-height, initial);
 
             &__image__container {
+                display: flex;
                 flex: 1;
+                justify-content: center;
                 margin-bottom: var(--jb-product-card-vertical-image-margin-bottom, 8px);
 
                 &__img {
+                    margin: 0 auto;
                     width: var(--jb-product-card-vertical-image-width, 100%);
                     box-shadow: var(--jb-product-card-vertical-image-box-shadow, none);
                 }

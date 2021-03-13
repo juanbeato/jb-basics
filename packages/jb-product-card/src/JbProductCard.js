@@ -77,15 +77,13 @@ export class JbProductCard extends LitElement {
 
   get _standardTemplate() {
     return html`
+      <slot name="after-image"></slot>
       ${this._getImageTemplate}
       <div class="jb-product-card__main-container__data-container">
         ${this._paragraphTemplate(this.title, 'title')}
         ${this._paragraphTemplate(this.description, 'description')}
         ${this._dateTemplate(this.date)}
         ${this._countDownTemplate(this.countDown)}
-        <div class="jb-product-card__main-container__data-container__footer">
-          ${this._timeTemplate(this.time)} ${this._priceTemplate(this.price)}
-        </div>
       </div>
     `;
   }
@@ -159,20 +157,6 @@ export class JbProductCard extends LitElement {
     </div>` : html``;
   }
 
-  _timeTemplate(time) {
-    return time
-      ? html` <div
-          class="jb-product-card__main-container__data-container__footer__left"
-        >
-          ${this.isLoading
-            ? this._skeletonTemplate({ width: '50%' })
-            : unsafeHTML(`<p class="jb-product-card__main-container__data-container__footer__left__text">
-              ${time}
-            </p>`)}
-        </div>`
-      : html``;
-  }
-
   _countDownTemplate(countDown) {
     return Object.keys(countDown).length
       ? html`<div
@@ -185,6 +169,7 @@ export class JbProductCard extends LitElement {
                         ${countDown.dateFormat ? `dateformat="${countDown.dateFormat}"` : ''}
                         ${countDown.label ? `label="${countDown.label}"` : ''}
                         ${countDown.humanize ? `humanize="${countDown.humanize}"` : ''}
+                        ${countDown.countDownLabels ? `countdownlabels="${JSON.stringify(countDown.countDownLabels)}"` : ''}
                         ></jb-countdown>`)}
         </div>`
       : html``;
