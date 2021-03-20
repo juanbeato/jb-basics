@@ -1,0 +1,46 @@
+$default-bg: gray;
+$default-color: black;
+$default-font-size: 16px;
+$default-font-weight: normal;
+
+.jb-chip-container {
+    display: var(--jb-chip-container-display, inline-flex);
+    align-items: center;
+    background-color: var(--jb-chip-container-bg-color, $default-bg);
+    color: var(--jb-chip-container-color, $default-color);
+    padding: var(--jb-chip-container-padding-vertical, 8px) var(--jb-chip-container-padding-horizontal, 8px);
+    margin: var(--jb-chip-container-margin-vertical, 0) var(--jb-chip-container-margin-horizontal, 0);
+    box-sizing: border-box;
+
+    &__text {
+        margin: 0;
+        color: var(--jb-chip-container-text-color, var(--jb-chip-container-color, $default-color));
+        font-size: var(--jb-chip-container-text-font-size, $default-font-size);
+        font-weight: var(--jb-chip-container-text-font-weight, $default-font-weight);
+        padding-top: var(--jb-chip-container-text-padding-top, 0);
+        padding-bottom: var(--jb-chip-container-text-padding-bottom, 0);
+        padding-left: var(--jb-chip-container-text-padding-left, 0);
+        padding-right: var(--jb-chip-container-text-padding-right, 0);
+        margin-top: var(--jb-chip-container-text-margin-top, 0);
+        margin-bottom: var(--jb-chip-container-text-margin-bottom, 0);
+        margin-left: var(--jb-chip-container-text-margin-left, 0);
+        margin-right: var(--jb-chip-container-text-margin-right, 0);
+    }
+
+    &__icon {
+        margin: 0;
+        --iron-icon-width: var(--jb-chip-container-icon-width, 24px);
+        --iron-icon-height: var(--jb-chip-container-icon-height, 24px);
+        color: var(--jb-chip-container-icon-color, var(--jb-chip-container-color, $default-color));
+        background-color: var(--jb-chip-container-icon-bg-color, var(--jb-chip-container-bg-color, $default-bg));
+        font-weight: var(--jb-chip-container-icon-font-weight, $default-font-weight);
+        padding-top: var(--jb-chip-container-icon-padding-top, 0);
+        padding-bottom: var(--jb-chip-container-icon-padding-bottom, 0);
+        padding-left: var(--jb-chip-container-icon-padding-left, 0);
+        padding-right: var(--jb-chip-container-icon-padding-right, 0);
+        margin-top: var(--jb-chip-container-icon-margin-top, 0);
+        margin-bottom: var(--jb-chip-container-icon-margin-bottom, 0);
+        margin-left: var(--jb-chip-container-icon-margin-left, 0);
+        margin-right: var(--jb-chip-container-icon-margin-right, 0);
+    }
+}
