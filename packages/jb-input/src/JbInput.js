@@ -50,7 +50,7 @@ export class JbInput extends LitElement {
   get _inputTemplate() {
     return html`
       <div class="jb-input-container">
-        ${this.constructor._inputIconTemplate(this.leftIcon, 'left')}
+        ${this._inputIconTemplate(this.leftIcon, 'left')}
         
         <input class="jb-input-container__input"
               placeholder=${ifDefined(this.placeholder ? this.placeholder : undefined)}
@@ -58,7 +58,7 @@ export class JbInput extends LitElement {
               value=${this.value}
               ?disabled=${this.disabled}
               @keyup=${this._handleChange}>
-        ${this.constructor._inputIconTemplate(this.rightIcon, 'right')}
+        ${this._inputIconTemplate(this.rightIcon, 'right')}
       </div>
     `;
   }
@@ -76,11 +76,13 @@ export class JbInput extends LitElement {
       : html``;
   }
 
-  static _inputIconTemplate(icon, type) {
+  _inputIconTemplate(icon, type) {
     return icon
       ? html`<iron-icon
           class="jb-input-container__icon jb-input-container__icon-${type}"
           icon=${icon}
+          @click=${() => this._handleClick(`jb-input-icon-${type}-clicked`)}
+          @keydown=${() => this._handleClick(`jb-input-icon-${type}-clicked`)}
         ></iron-icon>`
       : html``;
   }
@@ -92,6 +94,16 @@ export class JbInput extends LitElement {
         bubbles: true,
         composed: true,
         detail: evt.target.value,
+      })
+    );
+  }
+
+  _handleClick(eventName, detail = {}) {
+    this.dispatchEvent(
+      new CustomEvent(eventName, {
+        bubbles: true,
+        composed: true,
+        detail,
       })
     );
   }
