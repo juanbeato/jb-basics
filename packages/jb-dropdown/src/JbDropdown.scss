@@ -15,6 +15,7 @@ $default-font-weight: normal;
         margin-right: var(--jb-dropdown-label-margin-right, 0);
         font-size: var(--jb-dropdown-label-font-size, $default-font-size);
         font-weight: var(--jb-dropdown-label-font-weight, $default-font-weight);
+        color: var(--jb-dropdown-label-color, $default-color);
     }
 
     &__container {
