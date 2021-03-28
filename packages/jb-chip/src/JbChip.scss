@@ -8,9 +8,18 @@ $default-font-weight: normal;
     align-items: center;
     background-color: var(--jb-chip-container-bg-color, $default-bg);
     color: var(--jb-chip-container-color, $default-color);
-    padding: var(--jb-chip-container-padding-vertical, 8px) var(--jb-chip-container-padding-horizontal, 8px);
-    margin: var(--jb-chip-container-margin-vertical, 0) var(--jb-chip-container-margin-horizontal, 0);
+    padding-top: var(--jb-chip-container-padding-top, 8px);
+    padding-bottom: var(--jb-chip-container-padding-bottom, 8px);
+    padding-left: var(--jb-chip-container-padding-left, 8px);
+    padding-right: var(--jb-chip-container-padding-right, 8px);
+    margin-top: var(--jb-chip-container-margin-top, 0);
+    margin-bottom: var(--jb-chip-container-margin-bottom, 0);
+    margin-left: var(--jb-chip-container-margin-left, 0);
+    margin-right: var(--jb-chip-container-margin-right, 0);
     box-sizing: border-box;
+    border-radius: var(--jb-chip-container-border-radius, none);
+    overflow: hidden;
+    white-space: nowrap;
 
     &__text {
         margin: 0;
@@ -42,5 +51,6 @@ $default-font-weight: normal;
         margin-bottom: var(--jb-chip-container-icon-margin-bottom, 0);
         margin-left: var(--jb-chip-container-icon-margin-left, 0);
         margin-right: var(--jb-chip-container-icon-margin-right, 0);
+        border-radius: var(--jb-chip-container-icon-border-radius, none);
     }
 }

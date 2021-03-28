@@ -29,17 +29,29 @@ export class JbChip extends LitElement {
     return html`
       <div class="jb-chip-container">
         <p class="jb-chip-container__text">${this.text}</p>
-        ${this.constructor._itemIconTemplate(this.icon)}
+        ${this._itemIconTemplate(this.icon)}
       </div>
     `;
   }
 
-  static _itemIconTemplate(icon) {
+  _itemIconTemplate(icon) {
     return icon
       ? html`<iron-icon
           class="jb-chip-container__icon"
           icon=${icon}
+          @click=${() => this._handleClick(`jb-chip-icon-clicked`)}
+          @keydown=${() => this._handleClick(`jb-chip-icon-clicked`)}
         ></iron-icon>`
       : html``;
+  }
+
+  _handleClick(eventName, detail = {}) {
+    this.dispatchEvent(
+      new CustomEvent(eventName, {
+        bubbles: true,
+        composed: true,
+        detail,
+      })
+    );
   }
 }
