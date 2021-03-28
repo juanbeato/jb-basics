@@ -351,6 +351,9 @@ $default-color: black;
                 margin-left: var(--jb-product-card-banner-data-container-margin-left, 0);
                 margin-right: var(--jb-product-card-banner-data-container-margin-right, 0);
                 box-sizing: border-box;
+                height: 100%;
+                justify-content: center;
+                background-color: var(--jb-product-card-banner-data-container-bg-color, rgba(0, 0, 0, 0.2));
 
                 &__title {
                     color: white;
@@ -365,6 +368,7 @@ $default-color: black;
                     font-size: var(--jb-product-card-banner-data-container-title-font-size, 20px);
                     font-weight: var(--jb-product-card-banner-data-container-title-font-weight, normal);
                     line-height: var(--jb-product-card-banner-data-container-title-line-height, initial);
+                    text-align: var(--jb-product-card-banner-data-container-title-text-align, left);
                 }
 
                 &__subTitle {
@@ -402,6 +406,7 @@ $default-color: black;
 
             &__image__container {
                 nb-skeleton {
+                    width: var(--jb-product-card-isloading-main-container-image-container-width, initial);
                     border-top-left-radius: var(--jb-product-card-isloading-main-container-image-container-border-top-left-radius, none);
                     border-bottom-left-radius: var(--jb-product-card-isloading-main-container-image-container-border-bottom-left-radius, none);
                 }
@@ -421,4 +426,5 @@ jb-button {
 
 nb-skeleton {
     --skeleton-margin-bottom: 1px;
+    --skeleton-background: var(--jb-product-card-skeleton-background-color, #eff1f6);
 }
