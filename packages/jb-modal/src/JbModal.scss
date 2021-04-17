@@ -29,6 +29,14 @@
             padding-right: var(--jb-modal-container-data-padding-right, 16px);
             border-radius: var(--jb-modal-container-data-border-radius, 0);
             margin: var(--jb-modal-container-data-margin-vertical, 0) var(--jb-modal-container-data-margin-horizontal, 16px);
+            width: calc(100% - #{var(--jb-modal-container-data-margin-horizontal, 16px)} * 2);
+            box-sizing: border-box;
+
+            &__icon {
+                position: absolute;
+                right: var(--jb-modal-container-data-padding-right, 16px);
+                color: var(--jb-modal-container-data-icon-color, black);
+            }
 
             &__title {
                 margin: 0;

@@ -1,4 +1,6 @@
 import { html, css, LitElement, unsafeCSS } from 'lit-element';
+import '@polymer/iron-icon/iron-icon.js';
+import '@polymer/iron-icons/iron-icons.js';
 import '@juanbeato/jb-button';
 import style from './JbModal.scss';
 
@@ -35,6 +37,9 @@ export class JbModal extends LitElement {
           @keydown=${this.close}
         ></div>
         <div class="jb-modal-container__data">
+          <slot name="data">
+          </slot>
+          ${this._closeIconTemplate(this.config.showCloseIcon)}
           <p class="jb-modal-container__data__title">${this.config.title}</p>
           <p class="jb-modal-container__data__description">
             ${this.config.description}
@@ -66,6 +71,16 @@ export class JbModal extends LitElement {
           @click=${() => this._handleClick(id, type)}
         ></jb-button>`
       : html``;
+  }
+
+  _closeIconTemplate(showCloseIcon, closeIcon) {
+    return showCloseIcon
+        ? html`<iron-icon
+        class="jb-modal-container__data__icon"
+        icon=${closeIcon || 'clear'}
+        @click=${() => this._handleClick('close', 'icon')}
+        @keydown=${() => this._handleClick('close', 'icon')}></iron-icon>`
+    : html``;
   }
 
   open(config = {}) {
