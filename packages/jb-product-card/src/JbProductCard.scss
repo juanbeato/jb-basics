@@ -276,7 +276,7 @@ $default-color: black;
 
             &__image__container {
                 display: flex;
-                flex: 1;
+                flex: var(--jb-product-card-vertical-image-flex, 1);
                 justify-content: center;
                 margin-bottom: var(--jb-product-card-vertical-image-margin-bottom, 8px);
 
