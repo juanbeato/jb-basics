@@ -92,6 +92,12 @@ export class JbModal extends LitElement {
 
   close() {
     this.opened = false;
+    this.dispatchEvent(
+      new CustomEvent(`jb-modal-closed`, {
+        bubbles: true,
+        composed: true,
+      })
+    );
   }
 
   _handleClick(id, type) {

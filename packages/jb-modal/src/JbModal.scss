@@ -34,7 +34,8 @@
 
             &__icon {
                 position: absolute;
-                right: var(--jb-modal-container-data-padding-right, 16px);
+                right: var(--jb-modal-container-data-icon-right, var(--jb-modal-container-data-padding-right, 16px));
+                top: var(--jb-modal-container-data-icon-top, var(--jb-modal-container-data-padding-top, 16px));
                 color: var(--jb-modal-container-data-icon-color, black);
             }
 
